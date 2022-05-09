@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutAgentOrder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".agentOrder.AgentOrderFragment" >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout1AgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tbAOReceiveNameAgentOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agent_order_hint_1"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2AgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout1AgentOrder"
+        app:startIconDrawable="@drawable/ic_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tbAOReceiveTelAgentOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agent_order_hint_2"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3AgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2AgentOrder"
+        app:startIconDrawable="@drawable/ic_place">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tbAOReceiveAddressAgentOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agent_order_hint_3"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4AgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3AgentOrder"
+        app:startIconDrawable="@drawable/ic_comment">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tbAORemarkAgentOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/agent_order_hint_4"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv1AgentOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/agent_order_hint_5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddPartAgentOrder"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintTop_toTopOf="@+id/btnAddPartAgentOrder" />
+
+    <ImageButton
+        android:id="@+id/btnAddPartAgentOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/agent_order_hint_10"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4AgentOrder" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDataAgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvRemarkAgentOrder"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1AgentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddPartAgentOrder"
+        tools:listitem="@layout/cell_agent_order_record" />
+
+    <TextView
+        android:id="@+id/tvRemarkAgentOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveAgentOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="提示信息" />
+
+    <Button
+        android:id="@+id/btnSaveAgentOrder"
+        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Surface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/app_save"
+        app:icon="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

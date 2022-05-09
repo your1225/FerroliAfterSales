@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/secMainFragment">
+
+    <fragment
+        android:id="@+id/secMainFragment"
+        android:name="com.ferroli.after_sales.secMain.SecMainFragment"
+        android:label="@string/app_menu_title_1"
+        tools:layout="@layout/sec_main_fragment" />
+    <fragment
+        android:id="@+id/agentOrderFragment"
+        android:name="com.ferroli.after_sales.agentOrder.AgentOrderFragment"
+        android:label="@string/app_menu_title_2"
+        tools:layout="@layout/agent_order_fragment" >
+        <action
+            android:id="@+id/action_agentOrderFragment_to_basePartInfoFragment"
+            app:destination="@id/basePartInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basePartInfoFragment"
+        android:name="com.ferroli.after_sales.basePartInfo.BasePartInfoFragment"
+        android:label="@string/app_menu_title_3"
+        tools:layout="@layout/base_part_info_fragment" />
+</navigation>

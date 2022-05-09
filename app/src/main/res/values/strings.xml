@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">FerroliAfterSales</string>
+    <string name="shp_name" translatable="false">APP_SHP</string>
+    <string name="shp_emp_id" translatable="false">shp_emp_id</string>
+    <string name="shp_emp_name" translatable="false">shp_emp_name</string>
+
+    <string name="app_menu_title_1">Main Window</string>
+    <string name="app_menu_title_2">Agent Order</string>
+    <string name="app_menu_title_3">part search</string>
+
+    <string name="app_save">Save</string>
+    <string name="app_money" translatable="false">¥</string>
+    <string name="app_refresh">refresh</string>
+    <string name="app_search">search</string>
+    <string name="app_select">selected</string>
+    <string name="app_error">Network service error, please try again.</string>
+
+    <string name="agent_order_hint_1">attn</string>
+    <string name="agent_order_hint_2">tel</string>
+    <string name="agent_order_hint_3">address</string>
+    <string name="agent_order_hint_4">remark</string>
+    <string name="agent_order_hint_5">parts information</string>
+    <string name="agent_order_hint_6">part image</string>
+    <string name="agent_order_hint_7">add qty</string>
+    <string name="agent_order_hint_8">minus qty</string>
+    <string name="agent_order_hint_9">qty</string>
+    <string name="agent_order_hint_10">add part</string>
+    <string name="agent_order_hint_11">enter part number or name to find</string>
+
+</resources>

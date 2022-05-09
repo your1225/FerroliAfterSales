@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">法罗力售后</string>
+    <string name="agent_order_hint_1">收件人</string>
+    <string name="agent_order_hint_2">电话</string>
+    <string name="agent_order_hint_3">送货地址</string>
+    <string name="agent_order_hint_4">备注</string>
+    <string name="agent_order_hint_5">配件信息</string>
+    <string name="app_save">保存</string>
+    <string name="app_menu_title_1">主窗口</string>
+    <string name="app_menu_title_2">配件订购</string>
+    <string name="agent_order_hint_6">配件图片</string>
+    <string name="agent_order_hint_7">增加数量</string>
+    <string name="agent_order_hint_8">减少数量</string>
+    <string name="agent_order_hint_9">数量</string>
+    <string name="agent_order_hint_10">添加配件</string>
+    <string name="app_refresh">刷新</string>
+    <string name="app_search">查找</string>
+    <string name="agent_order_hint_11">输入配件编号或名称查找</string>
+    <string name="app_select">选定</string>
+    <string name="app_menu_title_3">配件搜索</string>
+    <string name="app_error">网络服务错误，请重试</string>
+</resources>
