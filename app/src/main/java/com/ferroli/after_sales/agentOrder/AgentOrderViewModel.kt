@@ -5,21 +5,28 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
+import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.entity.*
 import com.ferroli.after_sales.utils.DateDeserializer
 import com.ferroli.after_sales.utils.LoginInfo
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import org.json.JSONArray
+import org.json.JSONObject
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AgentOrderViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var _basePartInfoRecord = MutableLiveData<List<AgentOrderLine>>()
+    private var _basePartInfoRecord = MutableLiveData<List<AgentOrderLine>?>()
 
     // 选择的物品
-    var basePartInfoRecord: LiveData<List<AgentOrderLine>> = _basePartInfoRecord
+    var basePartInfoRecord: LiveData<List<AgentOrderLine>?> = _basePartInfoRecord
 
     // 收件人
     val aoReceiveName = MutableLiveData<String>()
@@ -36,12 +43,17 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
     // 提示信息
     var remarkText = MutableLiveData<String>()
 
-    fun getLastInfo(userId: Int) {
-        if (userId == 0) {
+    // 返回值
+    var reData = MutableLiveData<SysSqlReturn>()
+
+    fun getLastInfo() {
+        val empId = LoginInfo.getLoginEmpId(getApplication())
+
+        if (empId == 0) {
             return
         }
 
-        val url = urlBase + "AgentOrder/GetLastData/${userId}"
+        val url = urlBase + "AgentOrder/GetLastData/${empId}"
 
         val stringRequest = StringRequest(
             Request.Method.GET,
@@ -96,7 +108,69 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
         _basePartInfoRecord.value = _basePartInfoRecord.value?.minus(item) ?: listOf()
     }
 
-    fun saveData(ao: AgentOrder) {
+    fun saveData(receiveName: String, receiveTel: String, receiveAddress: String, remark: String) {
+        val url = urlBase + "AgentOrder/Post"
 
+        val empId = LoginInfo.getLoginEmpId(getApplication())
+//        val empId = 1225
+
+        val array = JSONArray()
+
+        basePartInfoRecord.value?.run {
+            for(item in this) {
+                val obj = JSONObject()
+                obj.put("AOId", item.aoId)
+                obj.put("AOlId", item.aOlId)
+                obj.put("BPaiCode", item.bPaiCode)
+                obj.put("AOlCount", item.aOlCount)
+                obj.put("AOlAgentPrice", item.aOlAgentPrice)
+                obj.put("AOlPrice", item.aOlPrice)
+                obj.put("AOlApproveCount", item.aOlApproveCount)
+                obj.put("AOlApproveRemark", item.aOlApproveRemark)
+
+                array.put(obj)
+            }
+        }
+
+        val jsonObject = JSONObject()
+        jsonObject.put("AOReceiveEmpId", empId)
+        jsonObject.put("AOReceiveName", receiveName)
+        jsonObject.put("AOReceiveTel", receiveTel)
+        jsonObject.put("AOReceiveAddress", receiveAddress)
+        jsonObject.put("AOEmpId", empId)
+        jsonObject.put("AORemark", remark)
+
+        jsonObject.put("Lines", array)
+
+        val stringRequest = object : JsonObjectRequest(
+            Method.POST,
+            url,
+            jsonObject,
+            Response.Listener {
+                if (it != null) {
+                    reData.value = SysSqlReturn(it.getString("fOK"), it.getString("fMsg"))
+                } else {
+                    remarkText.value =
+                        getApplication<Application>().resources.getString(R.string.app_error)
+                }
+            },
+            Response.ErrorListener {
+                remarkText.value =
+                    getApplication<Application>().resources.getString(R.string.app_error)
+//                Log.d("Ferroli Log", it.toString())
+            }
+        ) {
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+
+        VolleySingleton.getInstance(getApplication()).requestQueue.add(stringRequest)
+    }
+
+    fun clearData() {
+        _basePartInfoRecord.postValue(null)
+
+        this.reData.postValue(null)
     }
 }

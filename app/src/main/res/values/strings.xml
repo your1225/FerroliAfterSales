@@ -18,6 +18,8 @@
     <string name="app_input_null">Please enter the search content</string>
     <string name="app_number_1" translatable="false">1</string>
     <string name="app_image_view">image view</string>
+    <string name="app_title_1">user login</string>
+    <string name="app_title_2">ferroli launcher</string>
 
     <string name="agent_order_hint_1">attn</string>
     <string name="agent_order_hint_2">tel</string>
@@ -31,5 +33,12 @@
     <string name="agent_order_hint_10">add part</string>
     <string name="agent_order_hint_11">enter part number or name to find</string>
     <string name="agent_order_hint_12">selected part type</string>
+
+    <string name="login_hint_1">Sign in to continue</string>
+    <string name="login_hint_2">user name</string>
+    <string name="login_hint_3">password</string>
+    <string name="login_hint_4">*If you are unable to log in, please contact IT to help you.</string>
+    <string name="login_hint_5">login failed,please try again</string>
+    <string name="login_hint_6">login</string>
 
 </resources>

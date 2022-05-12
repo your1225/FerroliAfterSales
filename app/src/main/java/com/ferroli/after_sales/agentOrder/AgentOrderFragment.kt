@@ -18,6 +18,7 @@ import com.ferroli.after_sales.utils.ToastUtil
 class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationListener {
 
     private lateinit var binding: AgentOrderFragmentBinding
+
     // private val viewModel by viewModels<AgentOrderViewModel>()
     // 如果需要Fragment之间共享ViewModel则用下面的方式 activityViewModels 如果只是一个 Fragment 那就还是用 viewModels
     private val viewModel by activityViewModels<AgentOrderViewModel>()
@@ -42,7 +43,7 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
 
         binding.rvDataAgentOrder.apply {
             adapter = mmAdapter
-            layoutManager = object : LinearLayoutManager(requireContext()){
+            layoutManager = object : LinearLayoutManager(requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
                 }
@@ -51,6 +52,19 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
         binding.btnAddPartAgentOrder.setOnClickListener {
             findNavController().navigate(
                 R.id.action_agentOrderFragment_to_basePartInfoFragment
+            )
+        }
+        binding.btnSaveAgentOrder.setOnClickListener {
+            val receiveName = binding.tbAOReceiveNameAgentOrder.text.toString()
+            val receiveTel = binding.tbAOReceiveTelAgentOrder.text.toString()
+            val receiveAddress = binding.tbAOReceiveAddressAgentOrder.text.toString()
+            val remark = binding.tbAORemarkAgentOrder.text.toString()
+
+            viewModel.saveData(
+                receiveName = receiveName,
+                receiveTel = receiveTel,
+                receiveAddress = receiveAddress,
+                remark = remark
             )
         }
 
@@ -69,6 +83,19 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
         viewModel.aoRemark.observe(viewLifecycleOwner) {
             binding.tbAORemarkAgentOrder.setText(it)
         }
+        viewModel.reData.observe(viewLifecycleOwner) {
+            when (it?.fOK) {
+                "True" -> {
+//                    Log.e("ferroli_log",
+//                        "reData observe " + viewModel.ckNoLiveData.value + " - " + viewModel.itmLiveData.value)
+
+                    viewModel.clearData()
+                }
+                "False" -> {
+                    binding.tvRemarkAgentOrder.text = it.fMsg
+                }
+            }
+        }
         viewModel.remarkText.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 ToastUtil.showToast(requireContext(), it)
@@ -79,7 +106,7 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             }
         }
 
-        viewModel.getLastInfo(LoginInfo.getLoginEmpId(requireContext()))
+        viewModel.getLastInfo()
     }
 
     override fun OnDeleteClick(item: AgentOrderLine) {

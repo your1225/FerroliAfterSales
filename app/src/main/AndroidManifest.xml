@@ -21,14 +21,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FerroliAfterSales">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".login.LoginActivity"
+            android:exported="false"
+            android:label="@string/app_title_1"
+            android:theme="@style/Theme.FerroliAfterSales.NoActionBar" />
+        <activity
+            android:name=".LauncherActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.FerroliAfterSales.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing|stateHidden" />
     </application>
 
 </manifest>
