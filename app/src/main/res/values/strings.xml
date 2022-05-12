@@ -13,7 +13,11 @@
     <string name="app_refresh">refresh</string>
     <string name="app_search">search</string>
     <string name="app_select">selected</string>
+    <string name="app_delete">delete</string>
     <string name="app_error">Network service error, please try again.</string>
+    <string name="app_input_null">Please enter the search content</string>
+    <string name="app_number_1" translatable="false">1</string>
+    <string name="app_image_view">image view</string>
 
     <string name="agent_order_hint_1">attn</string>
     <string name="agent_order_hint_2">tel</string>
@@ -26,5 +30,6 @@
     <string name="agent_order_hint_9">qty</string>
     <string name="agent_order_hint_10">add part</string>
     <string name="agent_order_hint_11">enter part number or name to find</string>
+    <string name="agent_order_hint_12">selected part type</string>
 
 </resources>

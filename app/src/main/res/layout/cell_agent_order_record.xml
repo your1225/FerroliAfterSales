@@ -33,8 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnDeleteAgentOrderRecord"
                 app:layout_constraintStart_toEndOf="@+id/imgDefaultAgentOrderRecord"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="采暖出水温度传感器" />
@@ -44,6 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/btnDeleteAgentOrderRecord"
                 app:layout_constraintStart_toStartOf="@+id/tvBPaiNameAgentOrderRecord"
                 app:layout_constraintTop_toBottomOf="@+id/tvBPaiNameAgentOrderRecord"
                 tools:text="34300750" />
@@ -70,30 +70,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvBPaiCodeAgentOrderRecord"
                 tools:text="6.00" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til1AgentOrderRecord"
-                android:layout_width="120dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/view1AgentOrderRecord"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvBPaiNameAgentOrderRecord"
-                app:startIconDrawable="@drawable/ic_count">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tbAOlCountAgentOrderRecord"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/agent_order_hint_9"
-                    android:inputType="number"
-                    android:selectAllOnFocus="true"
-                    android:singleLine="true"
-                    tools:ignore="TouchTargetSizeCheck"
-                    tools:text="10" />
-            </com.google.android.material.textfield.TextInputLayout>
-
             <View
                 android:id="@+id/view1AgentOrderRecord"
                 android:layout_width="0dp"
@@ -102,6 +78,43 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView1AgentOrderRecord"
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="24dp"
+                android:contentDescription="@string/agent_order_hint_9"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBPaiAgentPriceAgentOrderRecord"
+                app:layout_constraintStart_toEndOf="@+id/tvBPaiAgentPriceAgentOrderRecord"
+                app:srcCompat="@drawable/ic_count" />
+
+            <TextView
+                android:id="@+id/tvCountAgentOrderRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView1AgentOrderRecord"
+                app:layout_constraintStart_toEndOf="@+id/imageView1AgentOrderRecord"
+                tools:text="50" />
+
+            <ImageButton
+                android:id="@+id/btnDeleteAgentOrderRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/ferroli_title_background"
+                android:contentDescription="@string/app_delete"
+                android:minWidth="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/view1AgentOrderRecord"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_delete"
+                app:tint="@color/ferroli_color"
+                tools:ignore="ImageContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -8,7 +8,7 @@ import com.android.volley.toolbox.Volley
 // 测试的服务
 const val urlBase: String = "https://barcode.ferroli.com.cn:9014/api/"
 //const val urlBase: String = "https://app.ultra-union.com/api/"
-const val urlFileBase: String = "https://http://183.236.245.250:9011/MaterialImg/"
+const val urlFileBase: String = "http://183.236.245.250:9011/MaterialImg/"
 //const val urlDownload: String = "http://183.236.245.250:9011/wr"
 
 class VolleySingleton private constructor(context: Context) {

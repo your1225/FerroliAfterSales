@@ -20,4 +20,8 @@
     <string name="app_select">选定</string>
     <string name="app_menu_title_3">配件搜索</string>
     <string name="app_error">网络服务错误，请重试</string>
+    <string name="app_input_null">请输入查询内容</string>
+    <string name="app_delete">删除</string>
+    <string name="app_image_view">图片查看</string>
+    <string name="agent_order_hint_12">已选配件种类</string>
 </resources>

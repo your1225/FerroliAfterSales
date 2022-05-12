@@ -4,23 +4,22 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.ferroli.after_sales.R
-import com.ferroli.after_sales.entity.AgentOrder
-import com.ferroli.after_sales.entity.BasePartInfo
-import com.ferroli.after_sales.entity.VolleySingleton
-import com.ferroli.after_sales.entity.urlBase
+import com.ferroli.after_sales.entity.*
 import com.ferroli.after_sales.utils.DateDeserializer
+import com.ferroli.after_sales.utils.LoginInfo
 import com.google.gson.GsonBuilder
 import java.util.*
 
 class AgentOrderViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var _basePartInfoRecord = MutableLiveData<List<BasePartInfo>>()
+    private var _basePartInfoRecord = MutableLiveData<List<AgentOrderLine>>()
 
     // 选择的物品
-    var basePartInfoRecord: LiveData<List<BasePartInfo>> = _basePartInfoRecord
+    var basePartInfoRecord: LiveData<List<AgentOrderLine>> = _basePartInfoRecord
 
     // 收件人
     val aoReceiveName = MutableLiveData<String>()
@@ -69,5 +68,35 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
         )
 
         VolleySingleton.getInstance(getApplication()).requestQueue.add(stringRequest)
+    }
+
+    fun addBasePartInfo(item: BasePartInfo, buyCount: Int) {
+        val line = AgentOrderLine(
+            aoId = -1,
+            aOlId = -1,
+            bPaiCode = item.bPaiCode,
+            aOlCount = buyCount,
+            aOlAgentPrice = item.bPaiAgentPrice,
+            aOlPrice = item.bPaiPrice,
+            bPcId = item.bPcId,
+            bPaiName = item.bPaiName,
+            bPcName = item.bPcName,
+            aoReceiveEmpId = LoginInfo.getLoginEmpId(getApplication()),
+            aoIsApprove = false,
+            aoIsSend = false,
+            aOlApproveCount = 0,
+            aOlApproveRemark = "",
+            stockCount = 0
+        )
+
+        _basePartInfoRecord.value = _basePartInfoRecord.value?.plus(line) ?: listOf(line)
+    }
+
+    fun removeBasePartInfo(item: AgentOrderLine) {
+        _basePartInfoRecord.value = _basePartInfoRecord.value?.minus(item) ?: listOf()
+    }
+
+    fun saveData(ao: AgentOrder) {
+
     }
 }

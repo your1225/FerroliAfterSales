@@ -3,8 +3,11 @@ package com.ferroli.after_sales.agentOrder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,9 +15,8 @@ import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.entity.AgentOrderLine
 import com.ferroli.after_sales.entity.urlFileBase
-import com.google.android.material.textfield.TextInputEditText
 
-class AgentOrderCellAdapter :
+class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
     ListAdapter<AgentOrderLine, AgentOrderCellAdapter.CellViewHolder>(DIFFCALLBACK) {
     object DIFFCALLBACK : DiffUtil.ItemCallback<AgentOrderLine>() {
         override fun areItemsTheSame(
@@ -41,8 +43,14 @@ class AgentOrderCellAdapter :
             itemView.findViewById(R.id.tvBPaiCodeAgentOrderRecord)
         val tvBPaiAgentPriceAgentOrderRecord: TextView =
             itemView.findViewById(R.id.tvBPaiAgentPriceAgentOrderRecord)
-        val tbAOlCountAgentOrderRecord: TextInputEditText =
-            itemView.findViewById(R.id.til1AgentOrderRecord)
+        val tvCountAgentOrderRecord: TextView =
+            itemView.findViewById(R.id.tvCountAgentOrderRecord)
+        val btnDeleteAgentOrderRecord: ImageButton =
+            itemView.findViewById(R.id.btnDeleteAgentOrderRecord)
+    }
+
+    interface OnItemOperationListener {
+        fun OnDeleteClick(item: AgentOrderLine)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
@@ -61,12 +69,29 @@ class AgentOrderCellAdapter :
         holder.tvBPaiNameAgentOrderRecord.text = currentItem.bPaiName
         holder.tvBPaiCodeAgentOrderRecord.text = currentItem.bPaiCode
         holder.tvBPaiAgentPriceAgentOrderRecord.text = currentItem.aOlAgentPrice.toString()
-        holder.tbAOlCountAgentOrderRecord.setText(currentItem.aOlCount.toString())
+        holder.tvCountAgentOrderRecord.text = currentItem.aOlCount.toString()
+
+//        holder.tvBPaiCodeAgentOrderRecord.text = urlFileBase + currentItem.bPaiCode + ".jpg"
 
         Glide.with(holder.itemView)
             .load(urlFileBase + currentItem.bPaiCode + ".jpg")
             .centerCrop()
             .placeholder(R.drawable.ic_default_part_img)
             .into(holder.imgDefaultAgentOrderRecord)
+
+        holder.imgDefaultAgentOrderRecord.setOnClickListener {
+            val bundle = bundleOf(
+                "PartCode" to currentItem.bPaiCode
+            )
+
+            it.findNavController().navigate(
+                R.id.action_agentOrderFragment_to_partImageViewFragment,
+                bundle
+            )
+        }
+
+        holder.btnDeleteAgentOrderRecord.setOnClickListener {
+            listener.OnDeleteClick(currentItem)
+        }
     }
 }

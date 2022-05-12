@@ -1,10 +1,12 @@
 package com.ferroli.after_sales.basePartInfo
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,10 +14,12 @@ import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.entity.BasePartInfo
 import com.ferroli.after_sales.entity.urlFileBase
+import com.google.android.material.textfield.TextInputEditText
 
-class BasePartInfoCellAdapter : ListAdapter<BasePartInfo, BasePartInfoCellAdapter.CellViewHolder>(
-    DIFFCALLBACK
-) {
+class BasePartInfoCellAdapter(private val listener: OnItemCheckedListener) :
+    ListAdapter<BasePartInfo, BasePartInfoCellAdapter.CellViewHolder>(
+        DIFFCALLBACK
+    ) {
     object DIFFCALLBACK : DiffUtil.ItemCallback<BasePartInfo>() {
         override fun areItemsTheSame(
             oldItem: BasePartInfo,
@@ -33,14 +37,16 @@ class BasePartInfoCellAdapter : ListAdapter<BasePartInfo, BasePartInfoCellAdapte
     }
 
     inner class CellViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgDefaultBasePartInfoRecord: ImageView =
-            itemView.findViewById(R.id.imgDefaultBasePartInfoRecord)
-        val tvBPcNameBasePartInfoRecord: TextView =
-            itemView.findViewById(R.id.tvBPcNameBasePartInfoRecord)
         val tvBPaiNameBasePartInfoRecord: TextView =
             itemView.findViewById(R.id.tvBPaiNameBasePartInfoRecord)
         val tvBPaiCodeBasePartInfoRecord: TextView =
             itemView.findViewById(R.id.tvBPaiCodeBasePartInfoRecord)
+        val layoutBasePartInfoRecord: ConstraintLayout =
+            itemView.findViewById(R.id.layoutBasePartInfoRecord)
+    }
+
+    interface OnItemCheckedListener {
+        fun onItemChecked(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
@@ -58,12 +64,9 @@ class BasePartInfoCellAdapter : ListAdapter<BasePartInfo, BasePartInfoCellAdapte
 
         holder.tvBPaiNameBasePartInfoRecord.text = currentItem.bPaiName
         holder.tvBPaiCodeBasePartInfoRecord.text = currentItem.bPaiCode
-        holder.tvBPcNameBasePartInfoRecord.text = currentItem.bPcName
 
-        Glide.with(holder.itemView)
-            .load(urlFileBase + currentItem.bPaiCode + ".jpg")
-            .centerCrop()
-            .placeholder(R.drawable.ic_default_part_img)
-            .into(holder.imgDefaultBasePartInfoRecord)
+        holder.layoutBasePartInfoRecord.setOnClickListener {
+            listener.onItemChecked(position)
+        }
     }
 }

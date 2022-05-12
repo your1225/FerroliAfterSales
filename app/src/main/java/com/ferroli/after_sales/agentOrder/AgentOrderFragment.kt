@@ -6,18 +6,22 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.databinding.AgentOrderFragmentBinding
+import com.ferroli.after_sales.entity.AgentOrderLine
 import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
-class AgentOrderFragment : Fragment() {
+class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationListener {
 
     private lateinit var binding: AgentOrderFragmentBinding
-    private val viewModel by viewModels<AgentOrderViewModel>()
+    // private val viewModel by viewModels<AgentOrderViewModel>()
+    // 如果需要Fragment之间共享ViewModel则用下面的方式 activityViewModels 如果只是一个 Fragment 那就还是用 viewModels
+    private val viewModel by activityViewModels<AgentOrderViewModel>()
+    private val mmAdapter = AgentOrderCellAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,11 +40,13 @@ class AgentOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mmAdapter = AgentOrderCellAdapter()
-
         binding.rvDataAgentOrder.apply {
             adapter = mmAdapter
-            layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = object : LinearLayoutManager(requireContext()){
+                override fun canScrollVertically(): Boolean {
+                    return false
+                }
+            }
         }
         binding.btnAddPartAgentOrder.setOnClickListener {
             findNavController().navigate(
@@ -48,6 +54,9 @@ class AgentOrderFragment : Fragment() {
             )
         }
 
+        viewModel.basePartInfoRecord.observe(viewLifecycleOwner) {
+            mmAdapter.submitList(it)
+        }
         viewModel.aoReceiveName.observe(viewLifecycleOwner) {
             binding.tbAOReceiveNameAgentOrder.setText(it)
         }
@@ -73,5 +82,7 @@ class AgentOrderFragment : Fragment() {
         viewModel.getLastInfo(LoginInfo.getLoginEmpId(requireContext()))
     }
 
-
+    override fun OnDeleteClick(item: AgentOrderLine) {
+        viewModel.removeBasePartInfo(item)
+    }
 }

@@ -18,10 +18,22 @@
         <action
             android:id="@+id/action_agentOrderFragment_to_basePartInfoFragment"
             app:destination="@id/basePartInfoFragment" />
+        <action
+            android:id="@+id/action_agentOrderFragment_to_partImageViewFragment"
+            app:destination="@id/partImageViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/basePartInfoFragment"
         android:name="com.ferroli.after_sales.basePartInfo.BasePartInfoFragment"
         android:label="@string/app_menu_title_3"
-        tools:layout="@layout/base_part_info_fragment" />
+        tools:layout="@layout/base_part_info_fragment" >
+        <action
+            android:id="@+id/action_basePartInfoFragment_to_partImageViewFragment"
+            app:destination="@id/partImageViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partImageViewFragment"
+        android:name="com.ferroli.after_sales.partImageView.PartImageViewFragment"
+        android:label="@string/app_image_view"
+        tools:layout="@layout/fragment_part_image_view" />
 </navigation>

@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.general_menu, menu)
+        menu?.findItem(R.id.refreshGeneralMenu)?.isVisible = false
+
         return true
     }
 

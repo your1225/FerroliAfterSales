@@ -8,7 +8,7 @@
     tools:context=".basePartInfo.BasePartInfoFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutBasePartInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,10 +16,10 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/btnSearchBasePartInfo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_search">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvSearchStringBasePartInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/agent_order_hint_11"
@@ -28,17 +28,14 @@
 
     <Button
         android:id="@+id/btnSearchBasePartInfo"
-        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="-3dp"
         android:text="@string/app_search"
-        app:cornerRadius="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+        app:icon="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutBasePartInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayoutBasePartInfo"
         tools:ignore="TextContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -49,41 +46,143 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSelectedBasePartInfo"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBasePartInfo"
         tools:listitem="@layout/cell_base_part_info_record" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutBasepartInfo"
-        android:layout_width="150dp"
+        android:id="@+id/textInputLayout2BasePartInfo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSaveBasePartInfo"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBasePartInfo"
         app:startIconDrawable="@drawable/ic_count">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbCountBasePartInfo"
+            android:id="@+id/tvCountBasepartInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/agent_order_hint_9"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnSelectedBasePartInfo"
-        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Surface"
+    <TextView
+        android:id="@+id/tvBPcNameBasePartInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/app_select"
-        app:icon="@drawable/ic_check"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/ferroli_remind_3_color"
+        app:layout_constraintBottom_toTopOf="@+id/tvbPaiCodeBasePartInfo"
+        app:layout_constraintEnd_toStartOf="@+id/textView5BasePartInfo"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBasePartInfo"
+        tools:text="售后配件" />
+
+    <ImageView
+        android:id="@+id/imageViewBasePartInfo"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/agent_order_hint_6"
+        android:src="@drawable/ic_default_part_img"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2BasePartInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBPcNameBasePartInfo" />
+
+    <Button
+        android:id="@+id/btnSaveBasePartInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/agent_order_hint_10"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2BasePartInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textInputLayoutBasepartInfo"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout2BasePartInfo"
         tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/tvbPaiCodeBasePartInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvBPaiNameBasePartInfo"
+        app:layout_constraintEnd_toStartOf="@+id/textView5BasePartInfo"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBasePartInfo"
+        tools:text="34226842" />
+
+    <TextView
+        android:id="@+id/tvBPaiNameBasePartInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2BasePartInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBasePartInfo"
+        tools:text="燃气阀连接管" />
+
+    <TextView
+        android:id="@+id/tvBPaiAgentPriceBasePartInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvBPaiNameBasePartInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="65.00" />
+
+    <TextView
+        android:id="@+id/textView5BasePartInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/app_money"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPaiAgentPriceBasePartInfo"
+        app:layout_constraintEnd_toStartOf="@+id/tvBPaiAgentPriceBasePartInfo" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#efefef"
+        android:gravity="start|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/tvBPcNameBasePartInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView6BasePartInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/agent_order_hint_12"
+            android:textColor="#616161" />
+
+        <TextView
+            android:id="@+id/tvSelectedCountBasepartInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/ferroli_remind_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="0" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
