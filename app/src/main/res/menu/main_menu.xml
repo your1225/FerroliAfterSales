@@ -8,6 +8,10 @@
             android:id="@+id/secMainFragment"
             android:icon="@drawable/ic_main"
             android:title="@string/app_menu_title_1" />
+        <item
+            android:id="@+id/shareFileViewFragment"
+            android:icon="@drawable/ic_attach_file"
+            android:title="@string/app_menu_title_4" />
     </group>
     <group
         android:id="@+id/group_2_main_navigation"

@@ -1,33 +1,26 @@
-package com.ferroli.after_sales.basePartInfo
+package com.ferroli.after_sales.shareFileView
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.ferroli.after_sales.R
-import com.ferroli.after_sales.entity.BasePartInfo
+import com.ferroli.after_sales.entity.CusServiceFile
 import com.ferroli.after_sales.entity.VolleySingleton
 import com.ferroli.after_sales.entity.urlBase
 import com.ferroli.after_sales.utils.DateDeserializer
 import com.google.gson.GsonBuilder
 import java.util.*
 
-class BasePartInfoViewModel(application: Application) : AndroidViewModel(application) {
-    // 物品列表
-    private var _basePartInfoRecord = MutableLiveData<List<BasePartInfo>?>()
-    var basePartInfoRecord: LiveData<List<BasePartInfo>?> = _basePartInfoRecord
+class ShareFileViewViewModel(application: Application) : AndroidViewModel(application) {
 
-    // 已选物品
-    var selectedItem = MutableLiveData<BasePartInfo>()
+    var shareFileRecord = MutableLiveData<CusServiceFile?>()
 
-    // 提示信息
     var remarkText = MutableLiveData<String>()
 
-    // 获取搜索列表
-    fun getSearchData(searchString: String) {
-        val url = urlBase + "Base/BasePartInfo_GetModelList/${searchString}"
+    fun refreshFile() {
+        val url = urlBase + "File/GetShareFiles"
 
         StringRequest(
             Request.Method.GET,
@@ -38,10 +31,9 @@ class BasePartInfoViewModel(application: Application) : AndroidViewModel(applica
                         GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
                             .create()
 
-                    _basePartInfoRecord.value =
-                        gson.fromJson(it, Array<BasePartInfo>::class.java).toList()
+                    shareFileRecord.value = gson.fromJson(it, CusServiceFile::class.java)
                 } else {
-                    remarkText.value = "未找到配件信息"
+                    remarkText.value = "未发现任何文件"
                 }
             },
             {

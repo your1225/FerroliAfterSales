@@ -32,4 +32,6 @@
     <string name="login_hint_6">登录</string>
     <string name="app_title_1">员工登录</string>
     <string name="app_title_2">引导界面</string>
+    <string name="share_file_view_hint_1">文件查看</string>
+    <string name="app_menu_title_4">共享资料</string>
 </resources>

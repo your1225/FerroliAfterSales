@@ -4,8 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.fragment.findNavController
-import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -14,12 +12,10 @@ import com.ferroli.after_sales.R
 import com.ferroli.after_sales.entity.*
 import com.ferroli.after_sales.utils.DateDeserializer
 import com.ferroli.after_sales.utils.LoginInfo
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
-import kotlin.collections.ArrayList
 
 class AgentOrderViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -55,7 +51,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
 
         val url = urlBase + "AgentOrder/GetLastData/${empId}"
 
-        val stringRequest = StringRequest(
+        StringRequest(
             Request.Method.GET,
             url,
             {
@@ -77,9 +73,9 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
                     getApplication<Application>().resources.getString(R.string.app_error)
 //                Log.d("Ferroli Log", it.toString())
             }
-        )
-
-        VolleySingleton.getInstance(getApplication()).requestQueue.add(stringRequest)
+        ).also {
+            VolleySingleton.getInstance(getApplication()).requestQueue.add(it)
+        }
     }
 
     fun addBasePartInfo(item: BasePartInfo, buyCount: Int) {
@@ -117,7 +113,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
         val array = JSONArray()
 
         basePartInfoRecord.value?.run {
-            for(item in this) {
+            for (item in this) {
                 val obj = JSONObject()
                 obj.put("AOId", item.aoId)
                 obj.put("AOlId", item.aOlId)
@@ -142,7 +138,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
 
         jsonObject.put("Lines", array)
 
-        val stringRequest = object : JsonObjectRequest(
+        object : JsonObjectRequest(
             Method.POST,
             url,
             jsonObject,
@@ -163,9 +159,9 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
             override fun getBodyContentType(): String {
                 return "application/json"
             }
+        }.also {
+            VolleySingleton.getInstance(getApplication()).requestQueue.add(it)
         }
-
-        VolleySingleton.getInstance(getApplication()).requestQueue.add(stringRequest)
     }
 
     fun clearData() {
