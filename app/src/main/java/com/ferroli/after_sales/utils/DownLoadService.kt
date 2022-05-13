@@ -54,7 +54,7 @@ class DownLoadService: Service() {
         request.setDestinationInExternalFilesDir(
             applicationContext,
             Environment.DIRECTORY_DOWNLOADS,
-            "ferroli_update.apk"
+            "ferroli_after_sales_update.apk"
         )
         //在手机SD卡上创建一个download文件夹
         // Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).mkdir() ;

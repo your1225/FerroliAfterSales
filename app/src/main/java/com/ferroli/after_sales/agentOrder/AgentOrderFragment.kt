@@ -55,6 +55,16 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             )
         }
         binding.btnSaveAgentOrder.setOnClickListener {
+            if (viewModel.basePartInfoRecord.value.isNullOrEmpty()) {
+                val msg = "请先选择配件"
+
+                ToastUtil.showToast(requireContext(), msg)
+
+                binding.tvRemarkAgentOrder.text = msg
+
+                return@setOnClickListener
+            }
+
             val receiveName = binding.tbAOReceiveNameAgentOrder.text.toString()
             val receiveTel = binding.tbAOReceiveTelAgentOrder.text.toString()
             val receiveAddress = binding.tbAOReceiveAddressAgentOrder.text.toString()

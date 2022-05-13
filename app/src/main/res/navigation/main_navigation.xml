@@ -40,14 +40,5 @@
         android:id="@+id/shareFileViewFragment"
         android:name="com.ferroli.after_sales.shareFileView.ShareFileViewFragment"
         android:label="@string/app_menu_title_4"
-        tools:layout="@layout/fragment_share_file_view" >
-        <action
-            android:id="@+id/action_shareFileViewFragment_to_oneFileViewFragment"
-            app:destination="@id/oneFileViewFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/oneFileViewFragment"
-        android:name="com.ferroli.after_sales.shareFileView.OneFileViewFragment"
-        android:label="fragment_one_file_view"
-        tools:layout="@layout/fragment_one_file_view" />
+        tools:layout="@layout/fragment_share_file_view" />
 </navigation>

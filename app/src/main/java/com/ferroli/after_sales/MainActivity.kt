@@ -1,8 +1,13 @@
 package com.ferroli.after_sales
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,8 +16,12 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ferroli.after_sales.databinding.ActivityMainBinding
+import com.ferroli.after_sales.entity.VersionInfo
+import com.ferroli.after_sales.utils.DownLoadService
 
 class MainActivity : AppCompatActivity() {
+    private val viewModel by viewModels<MainViewModel>()
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
@@ -44,6 +53,32 @@ class MainActivity : AppCompatActivity() {
             ResourcesCompat.getDrawable(resources, R.drawable.ic_image_toolbar_background, theme)
         )
 
+        try {
+            val info = this.packageManager?.getPackageInfo(this.packageName!!, 0)
+            if (info != null) {
+                verName = info.versionName
+            }
+        } catch (e: Exception) {
+            Log.d("Ferroli Log", e.toString())
+        }
+
+        viewModel.versionInfo.observe(this) {
+            if (it.viVerName != this.verName) {
+//                SilentUpdate.update {
+//                    this.apkUrl = it.viUrl
+//                    this.latestVersion = it.viVerName
+//                    this.title = it.viTitle
+//                    this.msg = it.viMsg
+//                    this.isForce = true
+//                    this.extra = hashMapOf<String, Any>()
+//                }
+                showUpdateDialog(it)
+            } else {
+                Toast.makeText(this, "已是最新版本", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        viewModel.getLastVersionData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,5 +90,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun showUpdateDialog(verInfo: VersionInfo) {
+        val build = AlertDialog.Builder(this)
+        build.setTitle(verInfo.viTitle)
+        build.setMessage(verInfo.viMsg)
+//        build.setPositiveButton(
+//            "否"
+//        ) { dialog, _ -> dialog.dismiss() }
+        build.setNegativeButton("下载安装") { _, _ ->
+            val intentService = Intent(this, DownLoadService::class.java)
+            intentService.putExtra(
+                "url",
+                verInfo.viUrl
+            )
+            startService(intentService)
+        }
+        build.create().show()
     }
 }

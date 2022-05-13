@@ -43,7 +43,5 @@
     <string name="login_hint_6">login</string>
 
     <string name="share_file_view_hint_1">file view</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
