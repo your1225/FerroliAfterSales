@@ -34,4 +34,11 @@
     <string name="app_title_2">引导界面</string>
     <string name="share_file_view_hint_1">文件查看</string>
     <string name="app_menu_title_4">共享资料</string>
+    <string name="sales_order_hint_1">省份</string>
+    <string name="sales_order_hint_2">城市</string>
+    <string name="sales_order_hint_3">地区</string>
+    <string name="sales_order_hint_4">电话</string>
+    <string name="sales_order_hint_5">姓名</string>
+    <string name="sales_order_hint_6">详细地址</string>
+    <string name="app_menu_title_5">信息录入</string>
 </resources>

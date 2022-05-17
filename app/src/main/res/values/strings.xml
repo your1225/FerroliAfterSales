@@ -8,6 +8,7 @@
     <string name="app_menu_title_2">Agent Order</string>
     <string name="app_menu_title_3">part search</string>
     <string name="app_menu_title_4">share files</string>
+    <string name="app_menu_title_5">information entry</string>
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>
@@ -43,5 +44,12 @@
     <string name="login_hint_6">login</string>
 
     <string name="share_file_view_hint_1">file view</string>
+
+    <string name="sales_order_hint_1">province</string>
+    <string name="sales_order_hint_2">city</string>
+    <string name="sales_order_hint_3">district</string>
+    <string name="sales_order_hint_4">tel</string>
+    <string name="sales_order_hint_5">name</string>
+    <string name="sales_order_hint_6">address</string>
 
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group
         android:id="@+id/group_1_main_navigation"
@@ -20,5 +21,13 @@
             android:id="@+id/agentOrderFragment"
             android:icon="@drawable/ic_agent_order"
             android:title="@string/app_menu_title_2" />
+    </group>
+    <group
+        android:id="@+id/group_3_main_navigation"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/salesOrderFragment"
+            android:icon="@drawable/ic_sales_order"
+            android:title="@string/app_menu_title_5" />
     </group>
 </menu>

@@ -41,4 +41,9 @@
         android:name="com.ferroli.after_sales.shareFileView.ShareFileViewFragment"
         android:label="@string/app_menu_title_4"
         tools:layout="@layout/fragment_share_file_view" />
+    <fragment
+        android:id="@+id/salesOrderFragment"
+        android:name="com.ferroli.after_sales.salesOrder.SalesOrderFragment"
+        android:label="@string/app_menu_title_5"
+        tools:layout="@layout/fragment_sales_order" />
 </navigation>
