@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.databinding.FragmentSalesOrderBinding
+import com.ferroli.after_sales.entity.urlFileBase
 
 class SalesOrderFragment : Fragment() {
 
     private lateinit var binding: FragmentSalesOrderBinding
-    private val viewModel by viewModels<SalesOrderViewModel>()
+    private val viewModel by activityViewModels<SalesOrderViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +32,12 @@ class SalesOrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bPiCode = arguments?.getString("bPiCode", null)
+
+        if (bPiCode != null && bPiCode != "null") {
+//            viewModel.addProductInfo(bPiCode)
+        }
 
         val list: MutableList<String> = ArrayList()
 

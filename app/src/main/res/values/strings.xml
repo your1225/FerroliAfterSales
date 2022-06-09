@@ -9,6 +9,7 @@
     <string name="app_menu_title_3">part search</string>
     <string name="app_menu_title_4">share files</string>
     <string name="app_menu_title_5">information entry</string>
+    <string name="app_menu_title_6">product search</string>
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>
@@ -51,5 +52,11 @@
     <string name="sales_order_hint_4">tel</string>
     <string name="sales_order_hint_5">name</string>
     <string name="sales_order_hint_6">address</string>
+    <string name="sales_order_hint_9">street and house number</string>
+    <string name="sales_order_hint_7">backup phone 1</string>
+    <string name="sales_order_hint_8">backup phone 2</string>
+    <string name="sales_order_hint_10">Machine model</string>
+    <string name="sales_order_hint_11">add machine</string>
+    <string name="sales_order_hint_12">Product name or type</string>
 
 </resources>

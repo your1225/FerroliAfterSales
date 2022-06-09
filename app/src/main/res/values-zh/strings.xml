@@ -41,4 +41,11 @@
     <string name="sales_order_hint_5">姓名</string>
     <string name="sales_order_hint_6">详细地址</string>
     <string name="app_menu_title_5">信息录入</string>
+    <string name="sales_order_hint_7">备用电话1</string>
+    <string name="sales_order_hint_8">备用电话2</string>
+    <string name="sales_order_hint_9">街道、门牌号</string>
+    <string name="sales_order_hint_10">机器型号</string>
+    <string name="sales_order_hint_11">添加机器</string>
+    <string name="sales_order_hint_12">产品名称或类型</string>
+    <string name="app_menu_title_6">成品查找</string>
 </resources>

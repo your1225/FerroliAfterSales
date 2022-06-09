@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMainBaseProductInfoRecord"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvBPtNameBaseProductInfoRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/gray_600"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="法罗力" />
+
+    <TextView
+        android:id="@+id/tvBPmNameBaseProductInfoRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameBaseProductInfoRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvBPtNameBaseProductInfoRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameBaseProductInfoRecord"
+        tools:text="燃气壁挂炉" />
+
+    <TextView
+        android:id="@+id/tvBPiNameBaseProductInfoRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBPtNameBaseProductInfoRecord"
+        tools:text="艾菲尔D" />
+
+    <TextView
+        android:id="@+id/tvBPiENameBaseProductInfoRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/tvBPiNameBaseProductInfoRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPiNameBaseProductInfoRecord"
+        tools:text="L1PB34-FL 32 MCS" />
+
+    <View
+        android:id="@+id/view1BaseProductInfoRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,123 +5,258 @@
     android:id="@+id/layoutMainSalesOrder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".salesOrder.SalesOrderFragment" >
+    android:background="@color/ferroli_background"
+    android:orientation="vertical"
+    tools:context=".salesOrder.SalesOrderFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout1SalesOrder"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:endIconDrawable="@drawable/ic_search"
-        app:endIconMode="custom"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/tvRemarkSalesOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_phone">
+        tools:layout_conversion_absoluteHeight="731dp"
+        tools:layout_conversion_absoluteWidth="411dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbCITelSalesOrder"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_4"
-            tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout2SalesOrder"
+            <LinearLayout
+                android:id="@+id/layoutPart1SalesOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                tools:layout_conversion_absoluteHeight="245dp"
+                tools:layout_conversion_absoluteWidth="395dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout2SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbCINameSalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_5"
+                        tools:ignore="TextContrastCheck"
+                        tools:layout_conversion_absoluteHeight="56dp"
+                        tools:layout_conversion_absoluteWidth="379dp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="21dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout1SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbCITelSalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_4"
+                        android:inputType="phone"
+                        tools:ignore="TextContrastCheck"
+                        tools:layout_conversion_absoluteHeight="56dp"
+                        tools:layout_conversion_absoluteWidth="379dp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="91dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout7SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbCITel2SalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_7"
+                        android:inputType="phone"
+                        tools:ignore="TextContrastCheck"
+                        tools:layout_conversion_absoluteHeight="56dp"
+                        tools:layout_conversion_absoluteWidth="379dp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="160dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout8SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbCITel3SalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_8"
+                        android:inputType="phone"
+                        tools:ignore="TextContrastCheck"
+                        tools:layout_conversion_absoluteHeight="56dp"
+                        tools:layout_conversion_absoluteWidth="379dp"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="229dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPart2SalesOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                tools:layout_conversion_absoluteHeight="214dp"
+                tools:layout_conversion_absoluteWidth="395dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="261dp">
+
+                <TextView
+                    android:id="@+id/tvTitle1SalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sales_order_hint_6"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spnProvinceSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_1"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/spnCitySalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_2"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/spnDistrictSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_3"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <EditText
+                    android:id="@+id/tbCIAddressSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sales_order_hint_9"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutPart3SalesOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                tools:layout_conversion_absoluteHeight="242dp"
+                tools:layout_conversion_absoluteWidth="395dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="483dp">
+
+                <TextView
+                    android:id="@+id/tbTitle2SalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sales_order_hint_10"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnAddSalesOrder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btnAddSalesOrder"
+                    tools:layout_conversion_absoluteHeight="22dp"
+                    tools:layout_conversion_absoluteWidth="64dp"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="496dp" />
+
+                <ImageButton
+                    android:id="@+id/btnAddSalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/ferroli_color"
+                    android:contentDescription="@string/sales_order_hint_11"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_conversion_absoluteHeight="48dp"
+                    tools:layout_conversion_absoluteWidth="48dp"
+                    tools:layout_editor_absoluteX="355dp"
+                    tools:layout_editor_absoluteY="483dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAddSalesOrder"
+                    tools:layout_conversion_absoluteHeight="194dp"
+                    tools:layout_conversion_absoluteWidth="395dp"
+                    tools:listitem="@layout/cell_base_product_info_record" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvRemarkSalesOrder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveSalesOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout1SalesOrder"
-        app:startIconDrawable="@drawable/ic_person">
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:text="提示信息" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbCINameSalesOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_5"
-            tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout3SalesOrder"
+    <Button
+        android:id="@+id/btnSaveSalesOrder"
+        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Surface"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:text="@string/app_save"
+        app:icon="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout2SalesOrder">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbProvinceSalesOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_1" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout4SalesOrder"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout3SalesOrder">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbCitySalesOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_2" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout5SalesOrder"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout4SalesOrder">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbDistrictSalesOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_3" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout6SalesOrder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout5SalesOrder"
-        app:startIconDrawable="@drawable/ic_place">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tbCIAddressSalesOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sales_order_hint_6"
-            android:inputType="textMultiLine"
-            tools:ignore="TextContrastCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+        tools:ignore="TextContrastCheck"
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
