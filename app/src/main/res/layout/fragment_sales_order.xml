@@ -112,6 +112,35 @@
                         tools:layout_editor_absoluteY="229dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout9SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_date_range">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbSOPurchaseDateSalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_14"
+                        android:inputType="date" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout10SalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_date_range">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbSOAppointmentDateSalesOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_15"
+                        android:inputType="date" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -132,6 +161,8 @@
                     android:id="@+id/tvTitle1SalesOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/sales_order_hint_6"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -187,6 +218,7 @@
                     android:id="@+id/tbTitle2SalesOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="@string/sales_order_hint_10"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -194,9 +226,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/btnAddSalesOrder"
                     tools:layout_conversion_absoluteHeight="22dp"
-                    tools:layout_conversion_absoluteWidth="64dp"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="496dp" />
+                    tools:layout_conversion_absoluteWidth="64dp" />
 
                 <ImageButton
                     android:id="@+id/btnAddSalesOrder"
@@ -206,26 +236,78 @@
                     android:contentDescription="@string/sales_order_hint_11"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
-                    android:src="@drawable/ic_add"
+                    android:src="@drawable/ic_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#FFFFFF"
                     tools:ignore="ImageContrastCheck"
                     tools:layout_conversion_absoluteHeight="48dp"
-                    tools:layout_conversion_absoluteWidth="48dp"
-                    tools:layout_editor_absoluteX="355dp"
-                    tools:layout_editor_absoluteY="483dp" />
+                    tools:layout_conversion_absoluteWidth="48dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvBPtNameSalesOrder"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/gray_600"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAddSalesOrder"
-                    tools:layout_conversion_absoluteHeight="194dp"
-                    tools:layout_conversion_absoluteWidth="395dp"
-                    tools:listitem="@layout/cell_base_product_info_record" />
+                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    tools:text="法罗力" />
+
+                <TextView
+                    android:id="@+id/tvBPmNameSalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintStart_toEndOf="@+id/tvBPtNameSalesOrder"
+                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    tools:text="燃气壁挂炉" />
+
+                <TextView
+                    android:id="@+id/tvBPiNameSalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    tools:text="艾菲尔（系统炉）" />
+
+                <TextView
+                    android:id="@+id/tvBPiENameSalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBPiNameSalesOrder"
+                    tools:text="BLUEHELIX TECH S 45H (CN) " />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAddSalesOrder">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sales_order_hint_13" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

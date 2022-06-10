@@ -13,6 +13,8 @@ data class SalesOrder(
     val bGdId: Int,
     val ciName: String,
     val ciTel: String,
+    val ciTel2: String,
+    val ciTel3: String,
     val ciRemark: String,
     val bGpName: String,
     val bGcName: String,

@@ -58,5 +58,8 @@
     <string name="sales_order_hint_10">Machine model</string>
     <string name="sales_order_hint_11">add machine</string>
     <string name="sales_order_hint_12">Product name or type</string>
+    <string name="sales_order_hint_13">retail price</string>
+    <string name="sales_order_hint_14">purchasing date</string>
+    <string name="sales_order_hint_15">appointment date</string>
 
 </resources>

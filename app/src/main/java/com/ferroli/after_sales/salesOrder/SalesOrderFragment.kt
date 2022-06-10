@@ -9,10 +9,15 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
+import com.ferroli.after_sales.basePartInfo.BasePartInfoCellAdapter
+import com.ferroli.after_sales.baseProductInfo.BaseProductInfoCellAdapter
 import com.ferroli.after_sales.databinding.FragmentSalesOrderBinding
 import com.ferroli.after_sales.entity.urlFileBase
+import com.ferroli.after_sales.utils.ToastUtil
 
 class SalesOrderFragment : Fragment() {
 
@@ -27,6 +32,10 @@ class SalesOrderFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
+        viewModel.getProvince()
+        viewModel.getCity()
+        viewModel.getDistrict()
+
         return binding.root
     }
 
@@ -36,29 +45,112 @@ class SalesOrderFragment : Fragment() {
         val bPiCode = arguments?.getString("bPiCode", null)
 
         if (bPiCode != null && bPiCode != "null") {
-//            viewModel.addProductInfo(bPiCode)
+            viewModel.addProductInfo(bPiCode)
         }
 
-        val list: MutableList<String> = ArrayList()
+        binding.btnAddSalesOrder.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_salesOrderFragment_to_baseProductInfoFragment
+            )
+        }
 
-        for (i: Int in 1..100)
-            list.add("Item $i")
+        viewModel.baseProductInfoRecord.observe(viewLifecycleOwner) {
+            it?.run {
+                binding.tvBPtNameSalesOrder.text = this.bPtName
+                binding.tvBPmNameSalesOrder.text = this.bPmName
+                binding.tvBPiNameSalesOrder.text = this.bPiName
+                binding.tvBPiENameSalesOrder.text = this.bPiEName
+            }
+        }
+        viewModel.remarkText.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                ToastUtil.showToast(requireContext(), it)
+            }
+        }
 
-        val adapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            list
-        )
+        viewModel.baseGeoProvinceRecord.observe(viewLifecycleOwner) {
+            if (it == null)
+                return@observe
 
-        binding.spnProvinceSalesOrder.adapter = adapter
+            val gpList: MutableList<String> = ArrayList()
+
+            for (item in it) {
+                gpList.add(item.bGpName)
+            }
+
+            val adapter = ArrayAdapter(
+                requireContext(),
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                gpList
+            )
+
+            binding.spnProvinceSalesOrder.adapter = adapter
+        }
+
+        viewModel.baseGeoCityRecord.observe(viewLifecycleOwner) {
+            if (it == null)
+                return@observe
+
+            val gcList: MutableList<String> = ArrayList()
+
+            for (item in it) {
+                gcList.add(item.bGcName)
+            }
+
+            val adapter = ArrayAdapter(
+                requireContext(),
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                gcList
+            )
+
+            binding.spnCitySalesOrder.adapter = adapter
+        }
+
+        viewModel.baseGeoDistrict.observe(viewLifecycleOwner) {
+            if (it == null)
+                return@observe
+
+            val gdList: MutableList<String> = ArrayList()
+
+            for (item in it) {
+                gdList.add(item.bGdName)
+            }
+
+            val adapter = ArrayAdapter(
+                requireContext(),
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                gdList
+            )
+
+            binding.spnDistrictSalesOrder.adapter = adapter
+        }
 
         binding.spnProvinceSalesOrder.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    // p2 是所选 position
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.filterCity(position)
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {}
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+
+        binding.spnCitySalesOrder.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.filterDistrict(position)
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
     }
 }
