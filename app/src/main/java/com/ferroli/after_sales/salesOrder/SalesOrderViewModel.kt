@@ -16,11 +16,12 @@ import com.ferroli.after_sales.utils.LoginInfo
 import com.google.gson.GsonBuilder
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.SimpleDateFormat
 import java.util.*
 
 class SalesOrderViewModel(application: Application) : AndroidViewModel(application) {
 
-    // 省/市/区
+    // 省/市/区 列表
     private var _baseGeoProvinceRecord = MutableLiveData<List<BaseGeoProvince>?>()
     private var _baseGeoCityRecord = MutableLiveData<List<BaseGeoCity>?>()
     private var _baseGeoDistrictRecord = MutableLiveData<List<BaseGeoDistrict>?>()
@@ -35,6 +36,11 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
     // 所选产品
     private var _baseProductInfoRecord = MutableLiveData<BaseProductInfo?>()
     var baseProductInfoRecord: LiveData<BaseProductInfo?> = _baseProductInfoRecord
+
+    // 购买日期
+    val soPurchaseDate = MutableLiveData<Date>()
+    // 预约日期
+    val soAppointmentDate = MutableLiveData<Date>()
 
     // 提示信息
     var remarkText = MutableLiveData<String>()
@@ -165,8 +171,10 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    fun saveData(so: SalesOrder, pi: BaseProductInfo, solMoney: Float) {
-        val url = urlBase + "AgentOrder/Post"
+    fun saveData(so: SalesOrder, solMoney: Float) {
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+        val url = urlBase + "SalesOrder/Add"
 
         val empId = LoginInfo.getLoginEmpId(getApplication())
 //        val empId = 1225
@@ -177,7 +185,7 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
             val obj = JSONObject()
             obj.put("soId", -1)
             obj.put("sOlId", -1)
-            obj.put("bPiCode", pi.bPiCode)
+            obj.put("bPiCode", baseProductInfoRecord.value?.bPiCode)
             obj.put("sOlNum", 1)
             obj.put("sOlMoney", solMoney)
             obj.put("sOlRemark", "")
@@ -188,8 +196,8 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
         val jsonObject = JSONObject()
         jsonObject.put("soId", so.soId)
         jsonObject.put("ciId", so.ciId)
-        jsonObject.put("soPurchaseDate", so.soPurchaseDate)
-        jsonObject.put("soAppointmentDate", so.soAppointmentDate)
+        jsonObject.put("soPurchaseDate", formatter.format(so.soPurchaseDate))
+        jsonObject.put("soAppointmentDate", formatter.format(so.soAppointmentDate))
         jsonObject.put("soRemark", so.soRemark)
         jsonObject.put("bGpId", so.bGpId)
         jsonObject.put("bGcId", so.bGcId)

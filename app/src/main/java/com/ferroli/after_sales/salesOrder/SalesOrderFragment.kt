@@ -16,13 +16,22 @@ import com.ferroli.after_sales.R
 import com.ferroli.after_sales.basePartInfo.BasePartInfoCellAdapter
 import com.ferroli.after_sales.baseProductInfo.BaseProductInfoCellAdapter
 import com.ferroli.after_sales.databinding.FragmentSalesOrderBinding
+import com.ferroli.after_sales.entity.BaseProductInfo
+import com.ferroli.after_sales.entity.SalesOrder
 import com.ferroli.after_sales.entity.urlFileBase
 import com.ferroli.after_sales.utils.ToastUtil
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SalesOrderFragment : Fragment() {
 
     private lateinit var binding: FragmentSalesOrderBinding
     private val viewModel by activityViewModels<SalesOrderViewModel>()
+    private val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,11 +51,10 @@ class SalesOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bPiCode = arguments?.getString("bPiCode", null)
-
-        if (bPiCode != null && bPiCode != "null") {
-            viewModel.addProductInfo(bPiCode)
-        }
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("bPiCode")
+            ?.observe(viewLifecycleOwner) {
+                viewModel.addProductInfo(it)
+            }
 
         binding.btnAddSalesOrder.setOnClickListener {
             findNavController().navigate(
@@ -65,6 +73,46 @@ class SalesOrderFragment : Fragment() {
         viewModel.remarkText.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 ToastUtil.showToast(requireContext(), it)
+            }
+        }
+
+        binding.tbSOPurchaseDateSalesOrder.setOnClickListener {
+            val selectedLen = Date().time
+
+            val materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(R.string.sales_order_hint_14)
+                .setSelection(selectedLen)
+                .setCalendarConstraints(
+                    CalendarConstraints.Builder()
+                        .setStart(Date().time)
+                        .build()
+                )
+                .build()
+
+            materialDatePicker.show(requireActivity().supportFragmentManager, "DatePickerDialog")
+
+            materialDatePicker.addOnPositiveButtonClickListener {
+                viewModel.soPurchaseDate.value = Date(it)
+            }
+        }
+
+        binding.tbSOAppointmentDateSalesOrder.setOnClickListener {
+            val selectedLen = Date().time
+
+            val materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(R.string.sales_order_hint_15)
+                .setSelection(selectedLen)
+                .setCalendarConstraints(
+                    CalendarConstraints.Builder()
+                        .setStart(Date().time)
+                        .build()
+                )
+                .build()
+
+            materialDatePicker.show(requireActivity().supportFragmentManager, "DatePickerDialog")
+
+            materialDatePicker.addOnPositiveButtonClickListener {
+                viewModel.soAppointmentDate.value = Date(it)
             }
         }
 
@@ -125,6 +173,14 @@ class SalesOrderFragment : Fragment() {
             binding.spnDistrictSalesOrder.adapter = adapter
         }
 
+        viewModel.soPurchaseDate.observe(viewLifecycleOwner) {
+            binding.tbSOPurchaseDateSalesOrder.setText(formatter.format(it))
+        }
+
+        viewModel.soAppointmentDate.observe(viewLifecycleOwner){
+            binding.tbSOAppointmentDateSalesOrder.setText(formatter.format(it))
+        }
+
         binding.spnProvinceSalesOrder.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -152,5 +208,44 @@ class SalesOrderFragment : Fragment() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
+
+        binding.btnSaveSalesOrder.setOnClickListener {
+            if (viewModel.soPurchaseDate.value == null || viewModel.soAppointmentDate.value == null){
+                viewModel.remarkText.postValue("日期必须选择！")
+
+                return@setOnClickListener
+            }
+
+            val so = SalesOrder(
+                soId = -1,
+                ciId = -1,
+                soPurchaseDate = viewModel.soPurchaseDate.value!!,
+                soAppointmentDate = viewModel.soAppointmentDate.value!!,
+                soRemark = "",
+                bGpId = binding.spnProvinceSalesOrder.selectedItemPosition,
+                bGcId = binding.spnCitySalesOrder.selectedItemPosition,
+                bGdId = binding.spnDistrictSalesOrder.selectedItemPosition,
+                ciName = binding.tbCINameSalesOrder.text.toString(),
+                ciTel = binding.tbCITelSalesOrder.text.toString(),
+                ciTel2 = binding.tbCITel2SalesOrder.text.toString(),
+                ciTel3 = binding.tbCITel3SalesOrder.text.toString(),
+                ciRemark = "",
+                bGpName = "",
+                bGcName = "",
+                bGdName = "",
+                soEmpId = -1,
+                soDate = Date(),
+                userName = "",
+                ciAddress = binding.tbCIAddressSalesOrder.text.toString(),
+                soIsAppoint = false,
+                saId = -1,
+                soIsFinish = false,
+                sfId = -1
+            )
+
+            val solMoney: Float = binding.tbSOlMoneySalesOrder.text.toString().toFloat()
+
+            viewModel.saveData(so, solMoney)
+        }
     }
 }

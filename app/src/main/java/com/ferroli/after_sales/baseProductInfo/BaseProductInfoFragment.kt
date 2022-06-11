@@ -41,14 +41,18 @@ class BaseProductInfoFragment : Fragment(), BaseProductInfoCellAdapter.OnItemChe
     override fun onItemChecked(position: Int) {
         val bPiCode = viewModel.baseProductInfoRecord.value?.get(position)?.bPiCode
 
-        val bundle = bundleOf(
-            "bPiCode" to bPiCode
-        )
+//        val bundle = bundleOf(
+//            "bPiCode" to bPiCode
+//        )
 
-        findNavController().navigate(
-            R.id.action_baseProductInfoFragment_to_salesOrderFragment,
-            bundle
-        )
+        findNavController().previousBackStackEntry?.savedStateHandle?.set("bPiCode", bPiCode)
+
+        findNavController().popBackStack()
+
+//        findNavController().navigate(
+//            R.id.action_baseProductInfoFragment_to_salesOrderFragment,
+//            bundle
+//        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

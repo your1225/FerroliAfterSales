@@ -58,6 +58,7 @@
         <action
             android:id="@+id/action_baseProductInfoFragment_to_salesOrderFragment"
             app:destination="@id/salesOrderFragment"
+            app:popUpTo="@id/salesOrderFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

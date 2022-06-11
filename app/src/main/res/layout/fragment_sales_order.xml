@@ -116,12 +116,15 @@
                     android:id="@+id/layout9SalesOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:startIconDrawable="@drawable/ic_date_range">
+                    app:endIconCheckable="true"
+                    app:endIconDrawable="@drawable/ic_date_range"
+                    app:endIconMode="custom">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tbSOPurchaseDateSalesOrder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/sales_order_hint_14"
                         android:inputType="date" />
 
@@ -131,12 +134,15 @@
                     android:id="@+id/layout10SalesOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:startIconDrawable="@drawable/ic_date_range">
+                    app:endIconCheckable="true"
+                    app:endIconDrawable="@drawable/ic_date_range"
+                    app:endIconMode="custom">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tbSOAppointmentDateSalesOrder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/sales_order_hint_15"
                         android:inputType="date" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -253,9 +259,9 @@
                     android:padding="5dp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/layout11SalesOrder"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toTopOf="@+id/layout11SalesOrder"
                     tools:text="法罗力" />
 
                 <TextView
@@ -264,9 +270,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/layout11SalesOrder"
                     app:layout_constraintStart_toEndOf="@+id/tvBPtNameSalesOrder"
-                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toTopOf="@+id/layout11SalesOrder"
                     tools:text="燃气壁挂炉" />
 
                 <TextView
@@ -277,7 +283,7 @@
                     android:layout_marginTop="8dp"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/layout11SalesOrder"
                     tools:text="艾菲尔（系统炉）" />
 
                 <TextView
@@ -294,7 +300,7 @@
                     tools:text="BLUEHELIX TECH S 45H (CN) " />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                    android:id="@+id/layout11SalesOrder"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -303,9 +309,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/btnAddSalesOrder">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tbSOlMoneySalesOrder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/sales_order_hint_13" />
+                        android:hint="@string/sales_order_hint_13"
+                        android:inputType="number"
+                        android:text="@string/app_default_num" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

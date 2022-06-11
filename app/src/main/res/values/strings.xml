@@ -13,6 +13,7 @@
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>
+    <string name="app_default_num" translatable="false">1</string>
     <string name="app_refresh">refresh</string>
     <string name="app_search">search</string>
     <string name="app_select">selected</string>

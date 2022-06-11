@@ -93,7 +93,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout2"
+                android:id="@+id/linearLayout2AgentOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#efefef">
