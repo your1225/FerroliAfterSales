@@ -12,6 +12,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/tvRemarkSalesOrder"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,66 +150,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layoutPart2SalesOrder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                tools:layout_conversion_absoluteHeight="214dp"
-                tools:layout_conversion_absoluteWidth="395dp"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="261dp">
-
-                <TextView
-                    android:id="@+id/tvTitle1SalesOrder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/sales_order_hint_6"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/spnProvinceSalesOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/sales_order_hint_1"
-                    android:minHeight="48dp"
-                    android:spinnerMode="dialog" />
-
-                <Spinner
-                    android:id="@+id/spnCitySalesOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/sales_order_hint_2"
-                    android:minHeight="48dp"
-                    android:spinnerMode="dialog" />
-
-                <Spinner
-                    android:id="@+id/spnDistrictSalesOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/sales_order_hint_3"
-                    android:minHeight="48dp"
-                    android:spinnerMode="dialog" />
-
-                <EditText
-                    android:id="@+id/tbCIAddressSalesOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/sales_order_hint_9"
-                    android:importantForAutofill="no"
-                    android:inputType="textMultiLine"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
-
-            </LinearLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPart3SalesOrder"
                 android:layout_width="match_parent"
@@ -318,6 +259,66 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPart2SalesOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                tools:layout_conversion_absoluteHeight="214dp"
+                tools:layout_conversion_absoluteWidth="395dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="261dp">
+
+                <TextView
+                    android:id="@+id/tvTitle1SalesOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/sales_order_hint_6"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spnProvinceSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_1"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/spnCitySalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_2"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/spnDistrictSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/sales_order_hint_3"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dialog" />
+
+                <EditText
+                    android:id="@+id/tbCIAddressSalesOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sales_order_hint_9"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

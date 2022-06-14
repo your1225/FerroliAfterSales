@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -183,32 +182,37 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
 
         baseProductInfoRecord.value?.run {
             val obj = JSONObject()
-            obj.put("soId", -1)
-            obj.put("sOlId", -1)
-            obj.put("bPiCode", baseProductInfoRecord.value?.bPiCode)
-            obj.put("sOlNum", 1)
-            obj.put("sOlMoney", solMoney)
-            obj.put("sOlRemark", "")
+            obj.put("SOId", -1)
+            obj.put("SOlId", -1)
+            obj.put("BPiCode", baseProductInfoRecord.value?.bPiCode)
+            obj.put("SOlNum", 1)
+            obj.put("SOlMoney", solMoney)
+            obj.put("SOlRemark", "")
 
             array.put(obj)
         }
 
+        // 转换一下，从位置拿到位置的ID
+        val bgpId = baseGeoProvinceRecord.value?.get(so.bGpId)?.bGpId
+        val bGcId = baseGeoCityRecord.value?.get(so.bGcId)?.bGcId
+        val bGdId = baseGeoDistrict.value?.get(so.bGdId)?.bGdId
+
         val jsonObject = JSONObject()
-        jsonObject.put("soId", so.soId)
-        jsonObject.put("ciId", so.ciId)
-        jsonObject.put("soPurchaseDate", formatter.format(so.soPurchaseDate))
-        jsonObject.put("soAppointmentDate", formatter.format(so.soAppointmentDate))
-        jsonObject.put("soRemark", so.soRemark)
-        jsonObject.put("bGpId", so.bGpId)
-        jsonObject.put("bGcId", so.bGcId)
-        jsonObject.put("bGdId", so.bGdId)
-        jsonObject.put("ciName", so.ciName)
-        jsonObject.put("ciTel", so.ciTel)
-        jsonObject.put("ciTel2", so.ciTel2)
-        jsonObject.put("ciTel3", so.ciTel3)
-        jsonObject.put("ciRemark", so.ciRemark)
-        jsonObject.put("soEmpId", empId)
-        jsonObject.put("ciAddress", so.ciAddress)
+        jsonObject.put("SOId", so.soId)
+        jsonObject.put("CIId", so.ciId)
+        jsonObject.put("SOPurchaseDate", formatter.format(so.soPurchaseDate))
+        jsonObject.put("SOAppointmentDate", formatter.format(so.soAppointmentDate))
+        jsonObject.put("SORemark", so.soRemark)
+        jsonObject.put("BGpId", bgpId ?: 0)
+        jsonObject.put("BGcId", bGcId ?: 0)
+        jsonObject.put("BGdId", bGdId ?: 0)
+        jsonObject.put("CIName", so.ciName)
+        jsonObject.put("CITel", so.ciTel)
+        jsonObject.put("CITel2", so.ciTel2)
+        jsonObject.put("CITel3", so.ciTel3)
+        jsonObject.put("CIRemark", so.ciRemark)
+        jsonObject.put("SOEmpId", empId)
+        jsonObject.put("CIAddress", so.ciAddress)
 
         jsonObject.put("Lines", array)
 
@@ -236,5 +240,9 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
         }.also {
             VolleySingleton.getInstance(getApplication()).requestQueue.add(it)
         }
+    }
+
+    fun clearData() {
+        _baseProductInfoRecord.postValue(null)
     }
 }

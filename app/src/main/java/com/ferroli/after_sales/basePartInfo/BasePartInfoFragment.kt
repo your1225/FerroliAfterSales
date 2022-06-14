@@ -1,11 +1,13 @@
 package com.ferroli.after_sales.basePartInfo
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -15,10 +17,7 @@ import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.agentOrder.AgentOrderViewModel
 import com.ferroli.after_sales.databinding.BasePartInfoFragmentBinding
-import com.ferroli.after_sales.entity.AgentOrderLine
-import com.ferroli.after_sales.entity.BasePartInfo
 import com.ferroli.after_sales.entity.urlFileBase
-import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
 class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedListener {
@@ -68,6 +67,8 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
             }
         }
         viewModel.selectedItem.observe(viewLifecycleOwner) {
+            binding.layoutBasePartInfo.openDrawer(binding.layout2BasePartInfo)
+
             binding.tvBPcNameBasePartInfo.text = it.bPcName
             binding.tvbPaiCodeBasePartInfo.text = it.bPaiCode
             binding.tvBPaiNameBasePartInfo.text = it.bPaiName
@@ -85,6 +86,9 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
 
             if (searchStr.isNotBlank()) {
                 viewModel.getSearchData(searchStr)
+
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.tvSearchStringBasePartInfo.windowToken, 0)
             } else {
                 viewModel.remarkText.value = "必须填入查询信息"
             }

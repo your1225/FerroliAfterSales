@@ -75,6 +75,32 @@ class SalesOrderFragment : Fragment() {
                 ToastUtil.showToast(requireContext(), it)
             }
         }
+        viewModel.reData.observe(viewLifecycleOwner) {
+            when (it?.fOK) {
+                "True" -> {
+//                    Log.e("ferroli_log",
+//                        "reData observe " + viewModel.ckNoLiveData.value + " - " + viewModel.itmLiveData.value)
+
+                    viewModel.remarkText.postValue("已经保存成功!")
+
+                    binding.tbCINameSalesOrder.setText("")
+                    binding.tbCITelSalesOrder.setText("")
+                    binding.tbCITel2SalesOrder.setText("")
+                    binding.tbCITel3SalesOrder.setText("")
+                    binding.tbCIAddressSalesOrder.setText("")
+
+                    binding.tvBPtNameSalesOrder.text = ""
+                    binding.tvBPmNameSalesOrder.text = ""
+                    binding.tvBPiNameSalesOrder.text = ""
+                    binding.tvBPiENameSalesOrder.text = ""
+
+                    viewModel.clearData()
+                }
+                "False" -> {
+                    viewModel.remarkText.postValue(it.fMsg)
+                }
+            }
+        }
 
         binding.tbSOPurchaseDateSalesOrder.setOnClickListener {
             val selectedLen = Date().time
@@ -177,7 +203,7 @@ class SalesOrderFragment : Fragment() {
             binding.tbSOPurchaseDateSalesOrder.setText(formatter.format(it))
         }
 
-        viewModel.soAppointmentDate.observe(viewLifecycleOwner){
+        viewModel.soAppointmentDate.observe(viewLifecycleOwner) {
             binding.tbSOAppointmentDateSalesOrder.setText(formatter.format(it))
         }
 
@@ -210,8 +236,26 @@ class SalesOrderFragment : Fragment() {
             }
 
         binding.btnSaveSalesOrder.setOnClickListener {
-            if (viewModel.soPurchaseDate.value == null || viewModel.soAppointmentDate.value == null){
+            if (viewModel.soPurchaseDate.value == null || viewModel.soAppointmentDate.value == null) {
                 viewModel.remarkText.postValue("日期必须选择！")
+
+                return@setOnClickListener
+            }
+
+            if (viewModel.baseProductInfoRecord.value == null) {
+                viewModel.remarkText.postValue("必须选择产品！")
+
+                return@setOnClickListener
+            }
+
+            if (binding.tbCINameSalesOrder.text.toString().isEmpty()) {
+                viewModel.remarkText.postValue("必须填写姓名！")
+
+                return@setOnClickListener
+            }
+
+            if (binding.tbCITelSalesOrder.text.toString().isEmpty()) {
+                viewModel.remarkText.postValue("必须填写电话！")
 
                 return@setOnClickListener
             }

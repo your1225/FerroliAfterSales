@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,10 +18,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ferroli.after_sales.databinding.ActivityMainBinding
 import com.ferroli.after_sales.entity.VersionInfo
+import com.ferroli.after_sales.salesOrder.SalesOrderViewModel
 import com.ferroli.after_sales.utils.DownLoadService
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
+//    private val viewModelSo by viewModels<SalesOrderViewModel>()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -79,6 +82,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.getLastVersionData()
+
+//        viewModelSo.getProvince()
+//        viewModelSo.getCity()
+//        viewModelSo.getDistrict()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

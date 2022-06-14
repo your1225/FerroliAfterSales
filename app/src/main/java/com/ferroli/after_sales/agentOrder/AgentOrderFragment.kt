@@ -116,7 +116,9 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             }
         }
 
-        viewModel.getLastInfo()
+        if (binding.tbAOReceiveNameAgentOrder.text.toString().isEmpty()){
+            viewModel.getLastInfo()
+        }
     }
 
     override fun OnDeleteClick(item: AgentOrderLine) {
