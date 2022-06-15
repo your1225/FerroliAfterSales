@@ -63,4 +63,8 @@
     <string name="sales_order_hint_14">purchasing date</string>
     <string name="sales_order_hint_15">appointment date</string>
 
+    <string name="sales_appoint_hint_1">Enter phone to query</string>
+    <string name="sales_appoint_hint_2">Purchased products</string>
+    <string name="sales_appoint_hint_3">After sales type</string>
+    <string name="sales_appoint_hint_4">To whom</string>
 </resources>

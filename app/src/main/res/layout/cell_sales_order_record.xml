@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMainSalesOrderRecord"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/tvSOIdSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSalesOrderRecord"
+        app:layout_constraintStart_toEndOf="@+id/ivSalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/ivSalesOrderRecord"
+        tools:text="200" />
+
+    <TextView
+        android:id="@+id/tvSODateSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSalesOrderRecord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSalesOrderRecord"
+        tools:text="2022-06-15" />
+
+    <TextView
+        android:id="@+id/tvCINameSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/gray_600"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBGpNameSalesOrderRecord"
+        tools:text="熊伟" />
+
+    <TextView
+        android:id="@+id/tvCITelSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCINameSalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesOrderRecord"
+        tools:text="13660139472" />
+
+    <TextView
+        android:id="@+id/tvCITel2SalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCITelSalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesOrderRecord"
+        tools:text="13331313131" />
+
+    <TextView
+        android:id="@+id/tvCITel3SalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCITel2SalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesOrderRecord"
+        tools:text="15155523251" />
+
+    <TextView
+        android:id="@+id/tvBGpNameSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSalesOrderRecord"
+        tools:text="内蒙古" />
+
+    <TextView
+        android:id="@+id/tvBGcNameSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toEndOf="@+id/tvBGpNameSalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBGpNameSalesOrderRecord"
+        tools:text="大兴安岭地区" />
+
+    <TextView
+        android:id="@+id/tvBGdNameSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toEndOf="@+id/tvBGcNameSalesOrderRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBGcNameSalesOrderRecord"
+        tools:text="秀山土家族苗族自治县" />
+
+    <View
+        android:id="@+id/view1CellSalesOrderRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCINameSalesOrderRecord" />
+
+    <ImageView
+        android:id="@+id/ivSalesOrderRecord"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_image_view"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sales_order"
+        app:tint="@color/ferroli_color"
+        tools:ignore="ImageContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

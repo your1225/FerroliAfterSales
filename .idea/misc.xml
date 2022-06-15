@@ -8,6 +8,7 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_agent_price.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.3345" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_attach_file.xml" value="0.3345" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_background_bottom.xml" value="0.332" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_background_left.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_background_middle.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_background_right.xml" value="0.3355" />
@@ -32,6 +33,8 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_agent_order_record.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_base_part_info_record.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_base_product_info_record.xml" value="0.3609375" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_detail_record.xml" value="0.3609375" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_sales_order_record.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/cell_share_file_view_record.xml" value="0.3609375" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/content_launcher.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/content_login.xml" value="0.3619791666666667" />
@@ -39,6 +42,8 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_first.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_one_file_view.xml" value="0.22158273381294963" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_part_image_view.xml" value="0.3619791666666667" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_appoint.xml" value="0.3619791666666667" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_appoint_operation.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_order.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_second.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_share_file_view.xml" value="0.3619791666666667" />

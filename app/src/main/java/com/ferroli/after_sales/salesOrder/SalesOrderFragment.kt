@@ -1,31 +1,22 @@
 package com.ferroli.after_sales.salesOrder
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
-import com.ferroli.after_sales.basePartInfo.BasePartInfoCellAdapter
-import com.ferroli.after_sales.baseProductInfo.BaseProductInfoCellAdapter
 import com.ferroli.after_sales.databinding.FragmentSalesOrderBinding
-import com.ferroli.after_sales.entity.BaseProductInfo
 import com.ferroli.after_sales.entity.SalesOrder
-import com.ferroli.after_sales.entity.urlFileBase
 import com.ferroli.after_sales.utils.ToastUtil
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
-import kotlin.collections.ArrayList
 
 class SalesOrderFragment : Fragment() {
 

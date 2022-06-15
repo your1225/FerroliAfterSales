@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSalesAppointOperation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ferroli_background"
+    tools:context=".salesAppoint.SalesAppointOperationFragment" >
+
+    <ScrollView
+        android:id="@+id/svSalesAppointOperation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/ferroli_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layout2SalesAppointOperation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSoDataSalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:scrollbars="none"
+                tools:itemCount="2"
+                tools:listitem="@layout/cell_detail_record" />
+
+            <TextView
+                android:id="@+id/tvTitle1SalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_appoint_hint_2"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSoLineSalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:scrollbars="none"
+                tools:itemCount="1"
+                tools:listitem="@layout/cell_base_product_info_record" />
+
+            <LinearLayout
+                android:id="@+id/layout3SalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle2SalesAppointOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_bottom"
+                    android:text="@string/sales_appoint_hint_3"
+                    android:textColor="@color/ferroli_remind_3_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spBaseServiceTypeSalesAppointOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/sales_appoint_hint_3"
+                    android:spinnerMode="dialog"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout4SalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle3SalesAppointOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_bottom"
+                    android:text="@string/sales_appoint_hint_4"
+                    android:textColor="@color/ferroli_remind_3_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spToWhomSalesAppointOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/sales_appoint_hint_4"
+                    android:spinnerMode="dialog"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSaveSalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/app_save"
+                app:icon="@drawable/ic_save"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
