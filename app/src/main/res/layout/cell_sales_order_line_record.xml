@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMainSalesOrderLineRecord"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/tvBPtNameSalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/gray_600"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="法罗力" />
+
+    <TextView
+        android:id="@+id/tvBPmNameSalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesOrderLineRecord"
+        tools:text="燃气壁挂炉" />
+
+    <TextView
+        android:id="@+id/tvSOlNumSalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintStart_toEndOf="@+id/imageView1SalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesOrderLineRecord"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tvBPiNameSalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        tools:text="燃气灶(液化气）" />
+
+    <TextView
+        android:id="@+id/tvBPiENameSalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvBPiNameSalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPiNameSalesOrderLineRecord"
+        tools:text="JZY-G650" />
+
+    <View
+        android:id="@+id/view1SalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBPiENameSalesOrderLineRecord" />
+
+    <ImageView
+        android:id="@+id/imageView1SalesOrderLineRecord"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/app_num"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvBPmNameSalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:srcCompat="@drawable/ic_count"
+        app:tint="@color/ferroli_remind_3_color" />
+
+    <ImageView
+        android:id="@+id/imageView2SalesOrderLineRecord"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/app_price"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvSOlNumSalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:srcCompat="@drawable/ic_agent_price"
+        app:tint="@color/ferroli_remind_color" />
+
+    <TextView
+        android:id="@+id/tvSOlMoneySalesOrderLineRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesOrderLineRecord"
+        app:layout_constraintStart_toEndOf="@+id/imageView2SalesOrderLineRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesOrderLineRecord"
+        tools:text="1200.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

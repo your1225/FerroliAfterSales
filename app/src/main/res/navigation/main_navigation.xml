@@ -54,11 +54,19 @@
         android:id="@+id/baseProductInfoFragment"
         android:name="com.ferroli.after_sales.baseProductInfo.BaseProductInfoFragment"
         android:label="@string/app_menu_title_6"
-        tools:layout="@layout/fragment_base_product_info" >
+        tools:layout="@layout/fragment_base_product_info" />
+    <fragment
+        android:id="@+id/salesAppointFragment"
+        android:name="com.ferroli.after_sales.salesAppoint.SalesAppointFragment"
+        android:label="@string/app_menu_title_7"
+        tools:layout="@layout/fragment_sales_appoint">
         <action
-            android:id="@+id/action_baseProductInfoFragment_to_salesOrderFragment"
-            app:destination="@id/salesOrderFragment"
-            app:popUpTo="@id/salesOrderFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_salesAppointFragment_to_salesAppointOperationFragment"
+            app:destination="@id/salesAppointOperationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/salesAppointOperationFragment"
+        android:name="com.ferroli.after_sales.salesAppoint.SalesAppointOperationFragment"
+        android:label="@string/app_menu_title_8"
+        tools:layout="@layout/fragment_sales_appoint_operation" />
 </navigation>

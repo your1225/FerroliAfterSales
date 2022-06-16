@@ -24,13 +24,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tvTitle0SalesAppointOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_appoint_hint_5"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSoDataSalesAppointOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:scrollbars="none"
-                tools:itemCount="2"
                 tools:listitem="@layout/cell_detail_record" />
 
             <TextView
@@ -51,7 +61,7 @@
                 android:background="@color/colorPrimary"
                 android:scrollbars="none"
                 tools:itemCount="1"
-                tools:listitem="@layout/cell_base_product_info_record" />
+                tools:listitem="@layout/cell_sales_order_line_record" />
 
             <LinearLayout
                 android:id="@+id/layout3SalesAppointOperation"

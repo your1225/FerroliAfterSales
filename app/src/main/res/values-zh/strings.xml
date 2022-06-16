@@ -55,4 +55,9 @@
     <string name="sales_appoint_hint_2">已购产品</string>
     <string name="sales_appoint_hint_3">售后类型</string>
     <string name="sales_appoint_hint_4">委派给谁</string>
+    <string name="app_menu_title_7">未委派单</string>
+    <string name="app_menu_title_8">任务委派</string>
+    <string name="app_num">数量</string>
+    <string name="app_price">价格</string>
+    <string name="sales_appoint_hint_5">订单信息</string>
 </resources>

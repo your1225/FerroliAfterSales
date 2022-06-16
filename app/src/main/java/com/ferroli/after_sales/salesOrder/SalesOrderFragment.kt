@@ -93,7 +93,7 @@ class SalesOrderFragment : Fragment() {
             }
         }
 
-        binding.tbSOPurchaseDateSalesOrder.setOnClickListener {
+        binding.layout9SalesOrder.setEndIconOnClickListener {
             val selectedLen = Date().time
 
             val materialDatePicker = MaterialDatePicker.Builder.datePicker()
@@ -113,7 +113,7 @@ class SalesOrderFragment : Fragment() {
             }
         }
 
-        binding.tbSOAppointmentDateSalesOrder.setOnClickListener {
+        binding.layout10SalesOrder.setEndIconOnClickListener {
             val selectedLen = Date().time
 
             val materialDatePicker = MaterialDatePicker.Builder.datePicker()
