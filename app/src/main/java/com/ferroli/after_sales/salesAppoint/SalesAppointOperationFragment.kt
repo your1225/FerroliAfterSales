@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.R
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ferroli.after_sales.databinding.FragmentSalesAppointOperationBinding
 import com.ferroli.after_sales.salesOrder.SalesOrderLineCellAdapter
@@ -19,6 +20,8 @@ class SalesAppointOperationFragment : Fragment() {
 
     private lateinit var binding: FragmentSalesAppointOperationBinding
     private val viewModel by viewModels<SalesAppointOperationViewModel>()
+
+    private var selectedSo: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,7 +72,7 @@ class SalesAppointOperationFragment : Fragment() {
 
             for (item in it) {
                 if (item.cusName.isNotEmpty())
-                gdList.add(item.cusName)
+                    gdList.add(item.cusName)
                 else
                     gdList.add(item.userName)
             }
@@ -83,14 +86,60 @@ class SalesAppointOperationFragment : Fragment() {
             binding.spToWhomSalesAppointOperation.adapter = adapter
         }
 
-        val soId = arguments?.getString("soId", "-1")
+        viewModel.bscRecord.observe(viewLifecycleOwner) { bscList ->
+            if (bscList == null)
+                return@observe
 
-        if (soId != null) {
-            viewModel.getSalesOrderInfo(soId)
-            viewModel.getSalesOrderLineList(soId)
+            val gdList: MutableList<String> = ArrayList()
+
+            for (item in bscList) {
+                gdList.add(item.bScName)
+            }
+
+            val adapter = ArrayAdapter(
+                requireContext(),
+                R.layout.support_simple_spinner_dropdown_item,
+                gdList
+            )
+
+            binding.spBaseSupportCategorySalesAppointOperation.adapter = adapter
         }
 
+        viewModel.reData.observe(viewLifecycleOwner) {
+            when (it?.fOK) {
+                "True" -> {
+//                    Log.e("ferroli_log",
+//                        "reData observe " + viewModel.ckNoLiveData.value + " - " + viewModel.itmLiveData.value)
+
+                    viewModel.remarkText.postValue("已经保存成功!")
+
+                    findNavController().popBackStack()
+                }
+                "False" -> {
+                    viewModel.remarkText.postValue(it.fMsg)
+                }
+            }
+        }
+
+        binding.btnSaveSalesAppointOperation.setOnClickListener {
+            val bscPosition: Int =
+                binding.spBaseSupportCategorySalesAppointOperation.selectedItemPosition
+            val toEmpPosition: Int = binding.spToWhomSalesAppointOperation.selectedItemPosition
+
+            viewModel.saveData(
+                bscPosition = bscPosition,
+                toEmpPosition = toEmpPosition,
+                soId = selectedSo
+            )
+        }
+
+        selectedSo = arguments?.getString("soId", "-1")?.toInt() ?: -1
+
+        viewModel.getSalesOrderInfo(selectedSo)
+        viewModel.getSalesOrderLineList(selectedSo)
+
         viewModel.getAppointUser()
+        viewModel.getBaseSupportCategory()
     }
 
 

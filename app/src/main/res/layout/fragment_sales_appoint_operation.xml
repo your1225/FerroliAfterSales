@@ -82,7 +82,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spBaseServiceTypeSalesAppointOperation"
+                    android:id="@+id/spBaseSupportCategorySalesAppointOperation"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:contentDescription="@string/sales_appoint_hint_3"
@@ -122,7 +122,10 @@
                 android:id="@+id/btnSaveSalesAppointOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="48dp"
                 android:text="@string/app_save"
                 app:icon="@drawable/ic_save"
                 tools:ignore="TextContrastCheck" />
