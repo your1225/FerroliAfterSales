@@ -60,4 +60,10 @@
     <string name="app_num">数量</string>
     <string name="app_price">价格</string>
     <string name="sales_appoint_hint_5">订单信息</string>
+    <string name="app_state">状态</string>
+    <string name="sales_appoint_hint_6">委派单号</string>
+    <string name="app_menu_title_9">我的委派</string>
+    <string name="sales_appoint_hint_7">客户信息</string>
+    <string name="sales_appoint_hint_8">委派信息</string>
+    <string name="app_function_button">功能按钮</string>
 </resources>

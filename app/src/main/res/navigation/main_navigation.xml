@@ -69,4 +69,18 @@
         android:name="com.ferroli.after_sales.salesAppoint.SalesAppointOperationFragment"
         android:label="@string/app_menu_title_8"
         tools:layout="@layout/fragment_sales_appoint_operation" />
+    <fragment
+        android:id="@+id/salesAppointLineFragment"
+        android:name="com.ferroli.after_sales.salesAppointLine.SalesAppointLineFragment"
+        android:label="@string/app_menu_title_9"
+        tools:layout="@layout/fragment_sales_appoint_line" >
+        <action
+            android:id="@+id/action_salesAppointLineFragment_to_salesAppointLineOperationFragment"
+            app:destination="@id/salesAppointLineOperationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesAppointLineOperationFragment"
+        android:name="com.ferroli.after_sales.salesAppointLine.SalesAppointLineOperationFragment"
+        android:label="fragment_sales_appoint_line_operation"
+        tools:layout="@layout/fragment_sales_appoint_line_operation" />
 </navigation>

@@ -12,6 +12,7 @@
     <string name="app_menu_title_6">product search</string>
     <string name="app_menu_title_7">Task list</string>
     <string name="app_menu_title_8">Task delegation</string>
+    <string name="app_menu_title_9">My Task</string>
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>
@@ -28,6 +29,9 @@
     <string name="app_title_2">ferroli launcher</string>
     <string name="app_num">quantity</string>
     <string name="app_price">price</string>
+    <string name="app_to" translatable="false">-></string>
+    <string name="app_state">state</string>
+    <string name="app_function_button">function button</string>
 
     <string name="agent_order_hint_1">attn</string>
     <string name="agent_order_hint_2">tel</string>
@@ -72,4 +76,7 @@
     <string name="sales_appoint_hint_3">After sales type</string>
     <string name="sales_appoint_hint_4">To whom</string>
     <string name="sales_appoint_hint_5">Order information</string>
+    <string name="sales_appoint_hint_6">Appoint no</string>
+    <string name="sales_appoint_hint_7">Customer info</string>
+    <string name="sales_appoint_hint_8">Appoint info</string>
 </resources>

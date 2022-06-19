@@ -32,5 +32,9 @@
             android:id="@+id/salesAppointFragment"
             android:icon="@drawable/ic_sales_appoint"
             android:title="@string/app_menu_title_7" />
+        <item
+            android:id="@+id/salesAppointLineFragment"
+            android:icon="@drawable/ic_sales_appoint_line"
+            android:title="@string/app_menu_title_9" />
     </group>
 </menu>

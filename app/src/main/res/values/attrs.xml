@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FunctionButtonView">
+        <attr name="iconInfo" format="integer" />
+        <attr name="titleInfo" format="string" />
+    </declare-styleable>
+</resources>

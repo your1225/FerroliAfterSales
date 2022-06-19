@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMainSalesAppointRecord"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/tvSAIdSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStateSalesAppointRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvStateSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/ivStateSalesAppointRecord"
+        tools:text="200" />
+
+    <TextView
+        android:id="@+id/tvSAlDateSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStateSalesAppointRecord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivStateSalesAppointRecord"
+        tools:text="2022-06-18 15:50" />
+
+    <TextView
+        android:id="@+id/tvBScNameSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStateSalesAppointRecord"
+        app:layout_constraintStart_toEndOf="@+id/tvSAIdSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/ivStateSalesAppointRecord"
+        tools:text="安装" />
+
+    <TextView
+        android:id="@+id/tvBGpNameSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivStateSalesAppointRecord"
+        tools:text="内蒙古" />
+
+    <TextView
+        android:id="@+id/tvBGcNameSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toEndOf="@+id/tvBGpNameSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBGpNameSalesAppointRecord"
+        tools:text="大兴安岭地区" />
+
+    <TextView
+        android:id="@+id/tvBGdNameSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/ferroli_remind_color"
+        app:layout_constraintStart_toEndOf="@+id/tvBGcNameSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvBGpNameSalesAppointRecord"
+        tools:text="秀山土家族苗族自治县" />
+
+    <TextView
+        android:id="@+id/tvCINameSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBGpNameSalesAppointRecord"
+        tools:text="熊伟" />
+
+    <TextView
+        android:id="@+id/tvCITelSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCINameSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesAppointRecord"
+        tools:text="13660139472" />
+
+    <TextView
+        android:id="@+id/tvCITel2SalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCITelSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesAppointRecord"
+        tools:text="13331313131" />
+
+    <TextView
+        android:id="@+id/tvCITel3SalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCITel2SalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/tvCINameSalesAppointRecord"
+        tools:text="15155523251" />
+
+    <View
+        android:id="@+id/view1CellSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCINameSalesAppointRecord" />
+
+    <ImageView
+        android:id="@+id/ivStateSalesAppointRecord"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_check" />
+
+    <TextView
+        android:id="@+id/tvStateSalesAppointRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivStateSalesAppointRecord"
+        app:layout_constraintStart_toEndOf="@+id/ivStateSalesAppointRecord"
+        app:layout_constraintTop_toTopOf="@+id/ivStateSalesAppointRecord"
+        tools:text="已接单" />
+</androidx.constraintlayout.widget.ConstraintLayout>
