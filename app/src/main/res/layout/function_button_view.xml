@@ -10,18 +10,17 @@
         android:id="@+id/ivFunctionButtonView"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/ic_background_corner"
         android:contentDescription="@string/app_function_button"
-        android:padding="10dp"
+        android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/tvFunctionButtonView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/teal_700" />
+        app:tint="@color/teal_700"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/tvFunctionButtonView"

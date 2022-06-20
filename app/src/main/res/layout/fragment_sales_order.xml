@@ -320,6 +320,22 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btnSaveSalesOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="48dp"
+                android:text="@string/app_save"
+                app:icon="@drawable/ic_save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="411dp" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -330,25 +346,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveSalesOrder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_conversion_absoluteHeight="0dp"
         tools:layout_conversion_absoluteWidth="411dp"
         tools:text="提示信息" />
 
-    <Button
-        android:id="@+id/btnSaveSalesOrder"
-        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Surface"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/app_save"
-        app:icon="@drawable/ic_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="411dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

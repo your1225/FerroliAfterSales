@@ -13,6 +13,7 @@
     <string name="app_menu_title_7">Task list</string>
     <string name="app_menu_title_8">Task delegation</string>
     <string name="app_menu_title_9">My Task</string>
+    <string name="app_menu_title_10">Task operation</string>
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>

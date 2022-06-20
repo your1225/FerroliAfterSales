@@ -141,6 +141,4 @@ class SalesAppointOperationFragment : Fragment() {
         viewModel.getAppointUser()
         viewModel.getBaseSupportCategory()
     }
-
-
 }

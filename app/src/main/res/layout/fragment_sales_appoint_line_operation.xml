@@ -5,6 +5,7 @@
     android:id="@+id/layoutMainSalesAppointLineOperation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ferroli_background"
     tools:context=".salesAppointLine.SalesAppointLineOperationFragment">
 
     <ScrollView
@@ -16,59 +17,172 @@
             android:id="@+id/layout1SalesAppointLineOperation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvTitle1SalesAppointLineOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sales_appoint_hint_7" />
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_appoint_hint_7"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSaDataSalesAppointLineOperation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 tools:itemCount="2"
                 tools:listitem="@layout/cell_detail_record" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvTitle2SalesAppointLineOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sales_appoint_hint_8" />
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_appoint_hint_8"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSaLineSalesAppointLineOperation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 tools:itemCount="2"
                 tools:listitem="@layout/cell_sales_appoint_line_record" />
 
             <LinearLayout
+                android:id="@+id/layout2SalesAppointLineOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@color/ferroli_background"
-                android:orientation="horizontal"
-                android:paddingTop="16dp">
+                android:orientation="horizontal">
 
                 <com.ferroli.after_sales.utils.FunctionButtonView
-                    android:id="@+id/functionButtonView"
+                    android:id="@+id/btnNextSalesAppointLineOperation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:iconInfo="@drawable/ic_search"
-                    app:titleInfo="按钮吧" />
+                    app:iconInfo="@drawable/ic_appoint_next"
+                    app:titleInfo="派单" />
 
                 <com.ferroli.after_sales.utils.FunctionButtonView
-                    android:id="@+id/functionButtonView2"
+                    android:id="@+id/btnReturnSalesAppointLineOperation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:iconInfo="@drawable/ic_appoint_return"
+                    app:titleInfo="返单" />
 
                 <com.ferroli.after_sales.utils.FunctionButtonView
-                    android:id="@+id/functionButtonView3"
+                    android:id="@+id/btnCancelSalesAppointLineOperation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:iconInfo="@drawable/ic_appoint_cancel"
+                    app:titleInfo="取消" />
+
+                <com.ferroli.after_sales.utils.FunctionButtonView
+                    android:id="@+id/btnOkSalesAppointLineOperation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:iconInfo="@drawable/ic_appoint_ok"
+                    app:titleInfo="接单">
+
+                </com.ferroli.after_sales.utils.FunctionButtonView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout3SalesAppointLineOperation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tvTitle3SalesAppointLineOperation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/ferroli_remind_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="售后委派" />
+
+        <TextView
+            android:id="@+id/tvTitle4SalesAppointLineOperatin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_background_bottom"
+            android:text="@string/sales_appoint_hint_4"
+            android:textColor="@color/ferroli_remind_3_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/spToEmpSalesAppointLineOperation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spToEmpSalesAppointLineOperation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/sales_appoint_hint_4"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout1SalesAppointLineOperation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout1SalesAppointLineOperation"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/btnSaveSalesAppointLineOperation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tbRemarkSalesAppointLineOperation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:hint="@string/agent_order_hint_4"
+                android:inputType="text"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSaveSalesAppointLineOperation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/app_save"
+            app:icon="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>

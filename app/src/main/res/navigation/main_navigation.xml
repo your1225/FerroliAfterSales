@@ -81,6 +81,6 @@
     <fragment
         android:id="@+id/salesAppointLineOperationFragment"
         android:name="com.ferroli.after_sales.salesAppointLine.SalesAppointLineOperationFragment"
-        android:label="fragment_sales_appoint_line_operation"
+        android:label="@string/app_menu_title_10"
         tools:layout="@layout/fragment_sales_appoint_line_operation" />
 </navigation>

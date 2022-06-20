@@ -66,4 +66,5 @@
     <string name="sales_appoint_hint_7">客户信息</string>
     <string name="sales_appoint_hint_8">委派信息</string>
     <string name="app_function_button">功能按钮</string>
+    <string name="app_menu_title_10">委派操作</string>
 </resources>
