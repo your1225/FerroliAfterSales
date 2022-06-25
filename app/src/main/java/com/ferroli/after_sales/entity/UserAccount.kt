@@ -14,5 +14,7 @@ data class UserAccount(
     // 网点编码
     val cusNo: String,
     // 网点名称
-    val cusName: String
+    val cusName: String,
+    // Ding ID
+    val dingId: String
 )

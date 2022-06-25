@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMainSalesFinishOperation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ferroli_background"
+    tools:context=".salesFinish.SalesFinishOperationFragment">
+
+    <LinearLayout
+        android:id="@+id/layout2SalesFinishOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioGroupSalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbNormalSalesFinishOperation"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/sales_finish_hint_1"
+                tools:ignore="TextContrastCheck" />
+
+            <RadioButton
+                android:id="@+id/rbTelSalesFinishOperation"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sales_finish_hint_2" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/layout4SalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_background_bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTitle1SalesFinishOperation"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:text="@string/sales_finish_hint_3"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnProductFromQrCodeSalesFinishOperation"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:background="@color/ferroli_color"
+                android:contentDescription="@string/sales_finish_hint_9"
+                android:src="@drawable/ic_qr_code_scanner"
+                app:tint="@color/colorPrimary"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageButton
+                android:id="@+id/btnProductFromSelectSalesFinishOperation"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="@color/ferroli_color"
+                android:contentDescription="@string/sales_finish_hint_10"
+                android:src="@drawable/ic_search_add"
+                app:tint="@color/colorPrimary"
+                tools:ignore="ImageContrastCheck" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilQrCodeSalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tbQrCodeSalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/sales_finish_hint_8"
+                tools:ignore="TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout6SalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/tvBPtNameSalesFinishOperation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/gray_600"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="法罗力" />
+
+            <TextView
+                android:id="@+id/tvBPmNameSalesFinishOperation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBPtNameSalesFinishOperation"
+                app:layout_constraintStart_toEndOf="@+id/tvBPtNameSalesFinishOperation"
+                app:layout_constraintTop_toTopOf="@+id/tvBPtNameSalesFinishOperation"
+                tools:text="燃气壁挂炉" />
+
+            <TextView
+                android:id="@+id/tvBPiNameSalesFinishOperation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvBPtNameSalesFinishOperation"
+                app:layout_constraintTop_toBottomOf="@+id/tvBPtNameSalesFinishOperation"
+                tools:text="艾菲尔D" />
+
+            <TextView
+                android:id="@+id/tvBPiENameSalesFinishOperation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@+id/tvBPiNameSalesFinishOperation"
+                app:layout_constraintTop_toTopOf="@+id/tvBPiNameSalesFinishOperation"
+                tools:text="L1PB34-FL 32 MCS" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/layout5SalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_background_bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTitle2SalesFinishOperation"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:text="@string/sales_finish_hint_4"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnPartFromSelectSalesFinishOperation"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="@color/ferroli_color"
+                android:contentDescription="@string/sales_finish_hint_4"
+                android:src="@drawable/ic_search_add"
+                app:tint="@color/colorPrimary"
+                tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPartSalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/cell_base_part_info_record" />
+
+        <LinearLayout
+            android:id="@+id/layout7SalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle3SalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_finish_hint_11"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spServiceTypeSalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:contentDescription="@string/sales_finish_hint_5" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swInWarrantySalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/sales_finish_hint_6"
+                tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDateSalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tbDateSalesFinishOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sales_finish_hint_7"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRemarkSalesFinishOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tbRemarkSalesFinishOperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/app_remark"
+                    android:inputType="textShortMessage"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSaveSalesFinishOperation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="48dp"
+            android:text="@string/app_save"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -14,6 +14,8 @@
     <string name="app_menu_title_8">Task delegation</string>
     <string name="app_menu_title_9">My Task</string>
     <string name="app_menu_title_10">Task operation</string>
+    <string name="app_menu_title_11">Sales finish</string>
+    <string name="app_menu_title_12">Finish operation</string>
 
     <string name="app_save">Save</string>
     <string name="app_money" translatable="false">¥</string>
@@ -33,6 +35,9 @@
     <string name="app_to" translatable="false">-></string>
     <string name="app_state">state</string>
     <string name="app_function_button">function button</string>
+    <string name="app_remark">remark</string>
+    <string name="app_user_photo">User photo</string>
+    <string name="app_remark_input">Input remark</string>
 
     <string name="agent_order_hint_1">attn</string>
     <string name="agent_order_hint_2">tel</string>
@@ -80,4 +85,23 @@
     <string name="sales_appoint_hint_6">Appoint no</string>
     <string name="sales_appoint_hint_7">Customer info</string>
     <string name="sales_appoint_hint_8">Appoint info</string>
+
+    <string name="sales_finish_hint_1">Normal statement</string>
+    <string name="sales_finish_hint_2">Tel statement</string>
+    <string name="sales_finish_hint_3">Product info</string>
+    <string name="sales_finish_hint_4">Part Info</string>
+    <string name="sales_finish_hint_5">Service category</string>
+    <string name="sales_finish_hint_6">In Warranty</string>
+    <string name="sales_finish_hint_7">Processing date</string>
+    <string name="sales_finish_hint_8">Product QR code</string>
+    <string name="sales_finish_hint_9">Scan product QR code</string>
+    <string name="sales_finish_hint_10">Select product</string>
+    <string name="sales_finish_hint_11">Information filling</string>
+
+    <string name="sec_main_hint_1">Appoint status</string>
+    <string name="sec_main_hint_2">Not appoint</string>
+    <string name="sec_main_hint_3">Appoint to me</string>
+    <string name="sec_main_hint_4">To be completed</string>
+    <string name="sec_main_hint_5">To be reviewed</string>
+
 </resources>

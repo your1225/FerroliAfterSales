@@ -264,7 +264,7 @@ class SalesOrderFragment : Fragment() {
                 ciTel = binding.tbCITelSalesOrder.text.toString(),
                 ciTel2 = binding.tbCITel2SalesOrder.text.toString(),
                 ciTel3 = binding.tbCITel3SalesOrder.text.toString(),
-                ciRemark = "",
+                ciRemark = binding.teRemarkSalesOrder.text.toString(),
                 bGpName = "",
                 bGcName = "",
                 bGdName = "",

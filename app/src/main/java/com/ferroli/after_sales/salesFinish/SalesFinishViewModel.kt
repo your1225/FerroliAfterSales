@@ -1,4 +1,4 @@
-package com.ferroli.after_sales.secMain
+package com.ferroli.after_sales.salesFinish
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -7,30 +7,31 @@ import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.ferroli.after_sales.R
-import com.ferroli.after_sales.entity.*
+import com.ferroli.after_sales.entity.SalesAppointLine
+import com.ferroli.after_sales.entity.VolleySingleton
+import com.ferroli.after_sales.entity.urlBase
 import com.ferroli.after_sales.utils.DateDeserializer
 import com.ferroli.after_sales.utils.LoginInfo
 import com.google.gson.GsonBuilder
 import java.util.*
 
-class SecMainViewModel(application: Application) : AndroidViewModel(application) {
+class SalesFinishViewModel(application: Application) : AndroidViewModel(application) {
+    private var _salesAppointLineRecord = MutableLiveData<List<SalesAppointLine>?>()
 
-    private var _dingUserWithState = MutableLiveData<DingUserWithState?>()
-
-    // 用户信息及状态
-    var dingUserWithState: LiveData<DingUserWithState?> = _dingUserWithState
+    var salesAppointLineRecord: LiveData<List<SalesAppointLine>?> = _salesAppointLineRecord
 
     // 提示信息
     var remarkText = MutableLiveData<String>()
 
-    fun getUserInfo() {
+    fun getModelListTook(telStr: String) {
         val empId = LoginInfo.getLoginEmpId(getApplication())
 
-        if (empId == 0) {
-            return
+        var tel = telStr
+        if (tel.isEmpty()) {
+            tel = "no"
         }
 
-        val url = urlBase + "DingUser/GetDingUserInfo/${empId}"
+        val url = urlBase + "SalesAppoint/Line_GetModelListTook/${empId}/${tel}"
 
         StringRequest(
             Request.Method.GET,
@@ -41,9 +42,11 @@ class SecMainViewModel(application: Application) : AndroidViewModel(application)
                         GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
                             .create()
 
-                    _dingUserWithState.value = gson.fromJson(it, DingUserWithState::class.java)
+                    val list = gson.fromJson(it, Array<SalesAppointLine>::class.java).toList()
+
+                    _salesAppointLineRecord.value = list
                 } else {
-                    remarkText.value = "未找到历史订购信息"
+                    remarkText.value = "你没有未完成委派"
                 }
             },
             {

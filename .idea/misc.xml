@@ -21,6 +21,7 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_count.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_default_part_img.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_error.xml" value="0.26" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_ferroli_after_sales_logo.xml" value="0.331" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_image_toolbar_background.xml" value="0.193" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3345" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3345" />
@@ -28,6 +29,8 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_person.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_price.xml" value="0.3355" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_sales_order_appoint.xml" value="0.332" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_search.xml" value="0.331" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_search_add.xml" value="0.331" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_vector_logo.xml" value="0.3345" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_vector_logo_full.xml" value="0.3345" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/drawable/ic_vector_wenzi.xml" value="0.3345" />
@@ -57,6 +60,8 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_appoint_line.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_appoint_line_operation.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_appoint_operation.xml" value="0.3619791666666667" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_finish.xml" value="0.3619791666666667" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_finish_operation.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_sales_order.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_second.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/fragment_share_file_view.xml" value="0.3619791666666667" />
@@ -64,7 +69,7 @@
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/function_button_view.xml" value="0.3609375" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/main_navigation_content_layout.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/sample_function_button_view.xml" value="0.34739583333333335" />
-        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/sec_main_fragment.xml" value="0.3619791666666667" />
+        <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/layout/sec_main_fragment.xml" value="0.33" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/menu/general_menu.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/menu/main_menu.xml" value="0.3619791666666667" />
         <entry key="..\:/OnlineProject/FerroliAfterSales/app/src/main/res/menu/part_search_menu.xml" value="0.3619791666666667" />

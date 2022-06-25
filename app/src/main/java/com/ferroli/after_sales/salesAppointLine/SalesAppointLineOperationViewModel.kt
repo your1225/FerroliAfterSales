@@ -23,8 +23,8 @@ class SalesAppointLineOperationViewModel(application: Application) : AndroidView
     private var _appointUserRecord = MutableLiveData<List<UserAccount>?>()
 
     // 已选委派
-    lateinit var selectedSa: SalesAppoint
-    lateinit var selectedSaLine: SalesAppointLine
+    private lateinit var selectedSa: SalesAppoint
+    private lateinit var selectedSaLine: SalesAppointLine
 
     // 委派信息
     var detailInfoRecord: LiveData<List<DetailInfo>?> = _detailInfoRecord

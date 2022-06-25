@@ -83,4 +83,25 @@
         android:name="com.ferroli.after_sales.salesAppointLine.SalesAppointLineOperationFragment"
         android:label="@string/app_menu_title_10"
         tools:layout="@layout/fragment_sales_appoint_line_operation" />
+    <fragment
+        android:id="@+id/salesFinishFragment"
+        android:name="com.ferroli.after_sales.salesFinish.SalesFinishFragment"
+        android:label="@string/app_menu_title_11"
+        tools:layout="@layout/fragment_sales_finish">
+        <action
+            android:id="@+id/action_salesFinishFragment_to_salesFinishOperationFragment"
+            app:destination="@id/salesFinishOperationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesFinishOperationFragment"
+        android:name="com.ferroli.after_sales.salesFinish.SalesFinishOperationFragment"
+        android:label="@string/app_menu_title_12"
+        tools:layout="@layout/fragment_sales_finish_operation" >
+        <action
+            android:id="@+id/action_salesFinishOperationFragment_to_basePartInfoFragment"
+            app:destination="@id/basePartInfoFragment" />
+        <action
+            android:id="@+id/action_salesFinishOperationFragment_to_baseProductInfoFragment"
+            app:destination="@id/baseProductInfoFragment" />
+    </fragment>
 </navigation>

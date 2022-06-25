@@ -36,5 +36,9 @@
             android:id="@+id/salesAppointLineFragment"
             android:icon="@drawable/ic_sales_appoint_line"
             android:title="@string/app_menu_title_9" />
+        <item
+            android:id="@+id/salesFinishFragment"
+            android:icon="@drawable/ic_sales_finish"
+            android:title="@string/app_menu_title_11" />
     </group>
 </menu>
