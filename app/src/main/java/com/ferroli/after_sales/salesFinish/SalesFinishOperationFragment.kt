@@ -11,10 +11,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferroli.after_sales.R
-import com.ferroli.after_sales.agentOrder.AgentOrderCellAdapter
 import com.ferroli.after_sales.databinding.FragmentSalesFinishOperationBinding
-import com.ferroli.after_sales.entity.AgentOrderLine
 import com.ferroli.after_sales.entity.SalesFinishLine
+import com.ferroli.after_sales.utils.CameraActivityResultContract
+import com.ferroli.after_sales.utils.ToastUtil
 import java.util.ArrayList
 
 class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOperationListener {
@@ -52,6 +52,8 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
             }
 
         binding.btnProductFromSelectSalesFinishOperation.setOnClickListener {
+            viewModel.qrCodePassed = false
+
             findNavController().navigate(
                 R.id.action_salesFinishOperationFragment_to_baseProductInfoFragment
             )
@@ -65,6 +67,28 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
                 R.id.action_salesFinishOperationFragment_to_basePartInfoFragment,
                 bundle
             )
+        }
+        binding.tilQrCodeSalesFinishOperation.setEndIconOnClickListener {
+            viewModel.qrCodePassed = false
+            cameraActivityLauncher.launch("请扫描")
+        }
+        binding.btnSaveSalesFinishOperation.setOnClickListener {
+            val pcBarcode: String = binding.tbQrCodeSalesFinishOperation.text.toString()
+            val bStPosition: Int = binding.spServiceTypeSalesFinishOperation.selectedItemPosition
+            val sfUnderWarranty: Boolean = binding.swInWarrantySalesFinishOperation.isChecked
+            val sfRemark: String = binding.tbRemarkSalesFinishOperation.text.toString()
+            val sfNeedApprove: Boolean = if (binding.rbTelSalesFinishOperation.isChecked) {
+                false
+            } else {
+                !viewModel.qrCodePassed
+            }
+
+            if (viewModel.baseProductInfoRecord.value == null) {
+                viewModel.remarkText.postValue("必须选择产品")
+                return@setOnClickListener
+            }
+
+            viewModel.saveData(pcBarcode, bStPosition, sfUnderWarranty, sfRemark, sfNeedApprove)
         }
 
         viewModel.salesFinishLineRecord.observe(viewLifecycleOwner) {
@@ -96,9 +120,39 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
 
             binding.spServiceTypeSalesFinishOperation.adapter = adapter
         }
+        viewModel.reData.observe(viewLifecycleOwner) {
+            when (it?.fOK) {
+                "True" -> {
+//                    Log.e("ferroli_log",
+//                        "reData observe " + viewModel.ckNoLiveData.value + " - " + viewModel.itmLiveData.value)
+
+                    viewModel.remarkText.postValue("已经保存成功!")
+
+                    viewModel.clearData()
+                }
+                "False" -> {
+                    viewModel.remarkText.postValue(it.fMsg)
+                }
+            }
+        }
+        viewModel.remarkText.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                ToastUtil.showToast(requireContext(), it)
+            }
+        }
+
+        val selectedSa = arguments?.getString("saId", "-1")?.toInt() ?: -1
 
         viewModel.getBaseServiceType()
+        viewModel.getSalesAppointLineCurrent(selectedSa)
     }
+
+    private val cameraActivityLauncher =
+        registerForActivityResult(CameraActivityResultContract()) { result ->
+            if (result.isNotBlank() && result != "no data") {
+                viewModel.getBaseProductInfoByQrCode(result)
+            }
+        }
 
     override fun onDeleteClick(item: SalesFinishLine) {
         viewModel.removeBasePartInfo(item)

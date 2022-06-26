@@ -58,17 +58,6 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnProductFromQrCodeSalesFinishOperation"
-                android:layout_width="48dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
-                android:background="@color/ferroli_color"
-                android:contentDescription="@string/sales_finish_hint_9"
-                android:src="@drawable/ic_qr_code_scanner"
-                app:tint="@color/colorPrimary"
-                tools:ignore="ImageContrastCheck" />
-
-            <ImageButton
                 android:id="@+id/btnProductFromSelectSalesFinishOperation"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
@@ -85,13 +74,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            app:endIconDrawable="@drawable/ic_qr_code_scanner"
+            app:endIconMode="custom">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tbQrCodeSalesFinishOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sales_finish_hint_8"
+                android:inputType="none"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
