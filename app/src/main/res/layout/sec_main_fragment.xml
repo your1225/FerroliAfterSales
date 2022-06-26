@@ -90,6 +90,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
+                    <ImageView
+                        android:id="@+id/ivState1SecMain"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/sec_main_hint_2"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTitle1SecMain"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tvState1CountSecMain"
+                        app:srcCompat="@drawable/ic_apoint_state_1"
+                        tools:ignore="ImageContrastCheck" />
+
                     <TextView
                         android:id="@+id/tvState1CountSecMain"
                         android:layout_width="wrap_content"
@@ -101,21 +115,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="1" />
-
-                    <ImageView
-                        android:id="@+id/ivState1SecMain"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/sec_main_hint_2"
-                        android:src="@drawable/ic_sales_appoint"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTitle1SecMain"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tvState1CountSecMain"
-                        app:srcCompat="@drawable/ic_apoint_state_1"
-                        tools:ignore="ImageContrastCheck" />
 
                     <TextView
                         android:id="@+id/tvTitle1SecMain"
@@ -136,6 +135,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
+                    <ImageView
+                        android:id="@+id/ivState2SecMain"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/sec_main_hint_3"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTitle2SecMain"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_apoint_state_2"
+                        tools:ignore="ImageContrastCheck" />
+
                     <TextView
                         android:id="@+id/tvState2CountSecMain"
                         android:layout_width="wrap_content"
@@ -147,21 +160,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="11" />
-
-                    <ImageView
-                        android:id="@+id/ivState2SecMain"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/sec_main_hint_3"
-                        android:src="@drawable/ic_sales_appoint_line"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTitle2SecMain"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_apoint_state_2"
-                        tools:ignore="ImageContrastCheck" />
 
                     <TextView
                         android:id="@+id/tvTitle2SecMain"
@@ -181,6 +179,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
+                    <ImageView
+                        android:id="@+id/ivState3SecMain"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/sec_main_hint_4"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTitle3SecMain"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_apoint_state_3"
+                        tools:ignore="ImageContrastCheck" />
+
                     <TextView
                         android:id="@+id/tvState3CountSecMain"
                         android:layout_width="wrap_content"
@@ -192,21 +204,6 @@
                         app:layout_constraintEnd_toEndOf="@+id/ivState3SecMain"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="21" />
-
-                    <ImageView
-                        android:id="@+id/ivState3SecMain"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/sec_main_hint_4"
-                        android:src="@drawable/ic_sales_order"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTitle3SecMain"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_apoint_state_3"
-                        tools:ignore="ImageContrastCheck" />
 
                     <TextView
                         android:id="@+id/tvTitle3SecMain"
@@ -226,6 +223,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
+                    <ImageView
+                        android:id="@+id/ivState4SecMain"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/sec_main_hint_5"
+                        app:layout_constraintBottom_toTopOf="@+id/tvTitle4SecMain"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_apoint_state_4"
+                        tools:ignore="ImageContrastCheck" />
+
                     <TextView
                         android:id="@+id/tvState4CountSecMain"
                         android:layout_width="wrap_content"
@@ -237,21 +248,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="1" />
-
-                    <ImageView
-                        android:id="@+id/ivState4SecMain"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/sec_main_hint_5"
-                        android:src="@drawable/ic_add"
-                        app:layout_constraintBottom_toTopOf="@+id/tvTitle4SecMain"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_apoint_state_4"
-                        tools:ignore="ImageContrastCheck" />
 
                     <TextView
                         android:id="@+id/tvTitle4SecMain"

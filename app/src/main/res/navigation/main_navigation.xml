@@ -103,5 +103,8 @@
         <action
             android:id="@+id/action_salesFinishOperationFragment_to_baseProductInfoFragment"
             app:destination="@id/baseProductInfoFragment" />
+        <action
+            android:id="@+id/action_salesFinishOperationFragment_to_partImageViewFragment"
+            app:destination="@id/partImageViewFragment" />
     </fragment>
 </navigation>

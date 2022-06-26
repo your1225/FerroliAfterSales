@@ -210,7 +210,7 @@ class SalesOrderViewModel(application: Application) : AndroidViewModel(applicati
         jsonObject.put("CITel", so.ciTel)
         jsonObject.put("CITel2", so.ciTel2)
         jsonObject.put("CITel3", so.ciTel3)
-        jsonObject.put("CIRemark", so.ciRemark)
+        jsonObject.put("CIRemark", "")
         jsonObject.put("SOEmpId", empId)
         jsonObject.put("CIAddress", so.ciAddress)
 

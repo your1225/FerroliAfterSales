@@ -105,7 +105,6 @@
                 android:id="@+id/layout9SalesOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/ic_date_range"
                 app:endIconMode="custom">
 
@@ -123,7 +122,6 @@
                 android:id="@+id/layout10SalesOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/ic_date_range"
                 app:endIconMode="custom">
 
@@ -342,7 +340,7 @@
                 android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/teRemarkSalesOrder"
+                    android:id="@+id/tbSORemarkSalesOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/app_remark_input"
@@ -359,11 +357,11 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="48dp"
             android:text="@string/app_save"
-            android:textColor="@color/colorPrimary"
             app:icon="@drawable/ic_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck"
             tools:layout_conversion_absoluteHeight="0dp"
             tools:layout_conversion_absoluteWidth="411dp" />
 

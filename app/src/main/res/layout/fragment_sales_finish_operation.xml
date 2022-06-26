@@ -182,9 +182,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPartSalesFinishOperation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:itemCount="2"
-            tools:listitem="@layout/cell_base_part_info_record" />
+            tools:listitem="@layout/cell_sales_finish_record" />
 
         <LinearLayout
             android:id="@+id/layout7SalesFinishOperation"
@@ -221,7 +221,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilDateSalesFinishOperation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:endIconDrawable="@drawable/ic_date_range"
+                app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tbDateSalesFinishOperation"
@@ -241,7 +243,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/app_remark"
-                    android:inputType="textShortMessage"
+                    android:inputType="textMultiLine"
                     tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,8 +51,13 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             }
         }
         binding.btnAddPartAgentOrder.setOnClickListener {
+            val bundle = bundleOf(
+                "FromFragment" to "AgentOrder"
+            )
+
             findNavController().navigate(
-                R.id.action_agentOrderFragment_to_basePartInfoFragment
+                R.id.action_agentOrderFragment_to_basePartInfoFragment,
+                bundle
             )
         }
         binding.btnSaveAgentOrder.setOnClickListener {
@@ -121,7 +127,7 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
         }
     }
 
-    override fun OnDeleteClick(item: AgentOrderLine) {
+    override fun onDeleteClick(item: AgentOrderLine) {
         viewModel.removeBasePartInfo(item)
     }
 }

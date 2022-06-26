@@ -79,6 +79,7 @@ class SalesOrderFragment : Fragment() {
                     binding.tbCITel2SalesOrder.setText("")
                     binding.tbCITel3SalesOrder.setText("")
                     binding.tbCIAddressSalesOrder.setText("")
+                    binding.tbSORemarkSalesOrder.setText("")
 
                     binding.tvBPtNameSalesOrder.text = ""
                     binding.tvBPmNameSalesOrder.text = ""
@@ -256,7 +257,7 @@ class SalesOrderFragment : Fragment() {
                 ciId = -1,
                 soPurchaseDate = viewModel.soPurchaseDate.value!!,
                 soAppointmentDate = viewModel.soAppointmentDate.value!!,
-                soRemark = "",
+                soRemark = binding.tbSORemarkSalesOrder.text.toString(),
                 bGpId = binding.spnProvinceSalesOrder.selectedItemPosition,
                 bGcId = binding.spnCitySalesOrder.selectedItemPosition,
                 bGdId = binding.spnDistrictSalesOrder.selectedItemPosition,
@@ -264,7 +265,7 @@ class SalesOrderFragment : Fragment() {
                 ciTel = binding.tbCITelSalesOrder.text.toString(),
                 ciTel2 = binding.tbCITel2SalesOrder.text.toString(),
                 ciTel3 = binding.tbCITel3SalesOrder.text.toString(),
-                ciRemark = binding.teRemarkSalesOrder.text.toString(),
+                ciRemark = "",
                 bGpName = "",
                 bGcName = "",
                 bGdName = "",

@@ -2,74 +2,50 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardViewAgentOrderRecord"
+    android:id="@+id/cardViewSalesFinishRecord"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#FFFFFF">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutMainAgentOrderRecord"
+        android:id="@+id/layoutMainSalesFinishRecord"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imgDefaultAgentOrderRecord"
+            android:id="@+id/imgDefaultSalesFinishRecord"
             android:layout_width="80dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:contentDescription="@string/agent_order_hint_6"
-            app:layout_constraintBottom_toTopOf="@+id/view1AgentOrderRecord"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCountSalesFinishRecord"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_default_part_img" />
 
         <TextView
-            android:id="@+id/tvBPaiNameAgentOrderRecord"
+            android:id="@+id/tvBPaiNameSalesFinishRecord"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/btnDeleteAgentOrderRecord"
-            app:layout_constraintStart_toEndOf="@+id/imgDefaultAgentOrderRecord"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteSalesFinishRecord"
+            app:layout_constraintStart_toEndOf="@+id/imgDefaultSalesFinishRecord"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="采暖出水温度传感器" />
 
         <TextView
-            android:id="@+id/tvBPaiCodeAgentOrderRecord"
+            android:id="@+id/tvBPaiCodeSalesFinishRecord"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/btnDeleteAgentOrderRecord"
-            app:layout_constraintStart_toStartOf="@+id/tvBPaiNameAgentOrderRecord"
-            app:layout_constraintTop_toBottomOf="@+id/tvBPaiNameAgentOrderRecord"
+            app:layout_constraintEnd_toStartOf="@+id/btnDeleteSalesFinishRecord"
+            app:layout_constraintStart_toStartOf="@+id/tvBPaiNameSalesFinishRecord"
+            app:layout_constraintTop_toBottomOf="@+id/tvBPaiNameSalesFinishRecord"
             tools:text="34300750" />
 
-        <TextView
-            android:id="@+id/tvTitle1AgentOrderRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_money"
-            app:layout_constraintBottom_toBottomOf="@+id/tvBPaiAgentPriceAgentOrderRecord"
-            app:layout_constraintStart_toStartOf="@+id/tvBPaiNameAgentOrderRecord" />
-
-        <TextView
-            android:id="@+id/tvBPaiAgentPriceAgentOrderRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/view1AgentOrderRecord"
-            app:layout_constraintStart_toEndOf="@+id/tvTitle1AgentOrderRecord"
-            app:layout_constraintTop_toBottomOf="@+id/tvBPaiCodeAgentOrderRecord"
-            tools:text="6.00" />
-
         <View
-            android:id="@+id/view1AgentOrderRecord"
+            android:id="@+id/view1SalesFinishRecord"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
@@ -78,36 +54,39 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView1AgentOrderRecord"
+            android:id="@+id/imageView1SalesFinishRecord"
             android:layout_width="10dp"
             android:layout_height="15dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="8dp"
             android:contentDescription="@string/agent_order_hint_9"
-            app:layout_constraintBottom_toBottomOf="@+id/tvBPaiAgentPriceAgentOrderRecord"
-            app:layout_constraintStart_toEndOf="@+id/tvBPaiAgentPriceAgentOrderRecord"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCountSalesFinishRecord"
+            app:layout_constraintStart_toStartOf="@+id/tvBPaiNameSalesFinishRecord"
             app:srcCompat="@drawable/ic_count" />
 
         <TextView
-            android:id="@+id/tvCountAgentOrderRecord"
+            android:id="@+id/tvCountSalesFinishRecord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:textColor="@color/ferroli_remind_3_color"
             android:textSize="30sp"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView1AgentOrderRecord"
-            app:layout_constraintStart_toEndOf="@+id/imageView1AgentOrderRecord"
+            app:layout_constraintBottom_toTopOf="@+id/view1SalesFinishRecord"
+            app:layout_constraintStart_toEndOf="@+id/imageView1SalesFinishRecord"
+            app:layout_constraintTop_toBottomOf="@+id/tvBPaiCodeSalesFinishRecord"
             tools:text="50" />
 
         <ImageButton
-            android:id="@+id/btnDeleteAgentOrderRecord"
+            android:id="@+id/btnDeleteSalesFinishRecord"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
             android:background="@color/ferroli_title_background"
             android:contentDescription="@string/app_delete"
             android:minWidth="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/view1AgentOrderRecord"
+            app:layout_constraintBottom_toTopOf="@+id/view1SalesFinishRecord"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_delete"

@@ -18,6 +18,7 @@ import com.ferroli.after_sales.R
 import com.ferroli.after_sales.agentOrder.AgentOrderViewModel
 import com.ferroli.after_sales.databinding.BasePartInfoFragmentBinding
 import com.ferroli.after_sales.entity.urlFileBase
+import com.ferroli.after_sales.salesFinish.SalesFinishOperationViewModel
 import com.ferroli.after_sales.utils.ToastUtil
 
 class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedListener {
@@ -25,6 +26,9 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
     private lateinit var binding: BasePartInfoFragmentBinding
     private val viewModel by viewModels<BasePartInfoViewModel>()
     private val viewModelAgentOrder by activityViewModels<AgentOrderViewModel>()
+    private val viewModelSalesFinishOperation by activityViewModels<SalesFinishOperationViewModel>()
+
+    private var fromFragment: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,7 +91,8 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
             if (searchStr.isNotBlank()) {
                 viewModel.getSearchData(searchStr)
 
-                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                val imm =
+                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(binding.tvSearchStringBasePartInfo.windowToken, 0)
             } else {
                 viewModel.remarkText.value = "必须填入查询信息"
@@ -110,7 +115,11 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
                 viewModel.selectedItem.value?.run {
                     val count: Int = binding.tvCountBasepartInfo.text.toString().toInt()
 
-                    viewModelAgentOrder.addBasePartInfo(this, count)
+                    if (fromFragment == "AgentOrder") {
+                        viewModelAgentOrder.addBasePartInfo(this, count)
+                    } else if (fromFragment == "SalesFinishOperation") {
+                        viewModelSalesFinishOperation.addBasePartInfo(this, count)
+                    }
 
                     viewModel.remarkText.value = "添加完成"
 
@@ -120,15 +129,23 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
                 viewModel.remarkText.value = "未选择任何物料信息"
             }
         }
+
+        fromFragment = arguments?.getString("FromFragment", "") ?: ""
     }
 
     private fun refreshState() {
         binding.tvCountBasepartInfo.setText("1")
 
-        viewModelAgentOrder.basePartInfoRecord.value?.run {
-            binding.tvSelectedCountBasepartInfo.text =
-                this.size.toString()
+        if (fromFragment == "AgentOrder") {
+            viewModelAgentOrder.basePartInfoRecord.value?.run {
+                binding.tvSelectedCountBasepartInfo.text =
+                    this.size.toString()
+            }
+        } else if (fromFragment == "SalesFinishOperation") {
+            viewModelSalesFinishOperation.salesFinishLineRecord.value?.run {
+                binding.tvSelectedCountBasepartInfo.text =
+                    this.size.toString()
+            }
         }
-
     }
 }

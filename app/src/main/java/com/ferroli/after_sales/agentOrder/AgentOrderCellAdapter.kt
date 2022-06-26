@@ -50,7 +50,7 @@ class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
     }
 
     interface OnItemOperationListener {
-        fun OnDeleteClick(item: AgentOrderLine)
+        fun onDeleteClick(item: AgentOrderLine)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CellViewHolder {
@@ -91,7 +91,7 @@ class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
         }
 
         holder.btnDeleteAgentOrderRecord.setOnClickListener {
-            listener.OnDeleteClick(currentItem)
+            listener.onDeleteClick(currentItem)
         }
     }
 }
