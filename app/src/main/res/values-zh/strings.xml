@@ -72,7 +72,7 @@
     <string name="sales_finish_hint_3">产品信息</string>
     <string name="sales_finish_hint_4">配件信息</string>
     <string name="sales_finish_hint_5">服务类别</string>
-    <string name="sales_finish_hint_6">是否保内</string>
+    <string name="sales_finish_hint_6">保修期内(选中保内)</string>
     <string name="sales_finish_hint_7">处理日期</string>
     <string name="app_remark">备注</string>
     <string name="sales_finish_hint_8">产品二维码</string>
@@ -88,4 +88,6 @@
     <string name="sec_main_hint_5">待审核</string>
     <string name="app_user_photo">用户头像</string>
     <string name="app_remark_input">填入备注</string>
+    <string name="sales_finish_hint_12">完成日期</string>
+    <string name="sales_finish_hint_13">二维码状态</string>
 </resources>

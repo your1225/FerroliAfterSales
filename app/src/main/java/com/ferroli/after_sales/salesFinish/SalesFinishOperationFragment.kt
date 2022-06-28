@@ -15,13 +15,17 @@ import com.ferroli.after_sales.databinding.FragmentSalesFinishOperationBinding
 import com.ferroli.after_sales.entity.SalesFinishLine
 import com.ferroli.after_sales.utils.CameraActivityResultContract
 import com.ferroli.after_sales.utils.ToastUtil
-import java.util.ArrayList
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOperationListener {
 
     private lateinit var binding: FragmentSalesFinishOperationBinding
     private val viewModel by activityViewModels<SalesFinishOperationViewModel>()
     private val mmAdapter = SalesFinishCellAdapter(this)
+    private val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +56,7 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
             }
 
         binding.btnProductFromSelectSalesFinishOperation.setOnClickListener {
-            viewModel.qrCodePassed = false
+            viewModel.qrCodePassed.value = false
 
             findNavController().navigate(
                 R.id.action_salesFinishOperationFragment_to_baseProductInfoFragment
@@ -69,7 +73,7 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
             )
         }
         binding.tilQrCodeSalesFinishOperation.setEndIconOnClickListener {
-            viewModel.qrCodePassed = false
+            viewModel.qrCodePassed.value = false
             cameraActivityLauncher.launch("请扫描")
         }
         binding.btnSaveSalesFinishOperation.setOnClickListener {
@@ -80,7 +84,9 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
             val sfNeedApprove: Boolean = if (binding.rbTelSalesFinishOperation.isChecked) {
                 false
             } else {
-                !viewModel.qrCodePassed
+                viewModel.qrCodePassed.value?.let {
+                    !it
+                } ?: false
             }
 
             if (viewModel.baseProductInfoRecord.value == null) {
@@ -88,7 +94,34 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
                 return@setOnClickListener
             }
 
+            if (viewModel.sfFinishDate.value == null) {
+                viewModel.remarkText.postValue("日期必须选择！")
+
+                return@setOnClickListener
+            }
+
+            binding.btnSaveSalesFinishOperation.isEnabled = false
+
             viewModel.saveData(pcBarcode, bStPosition, sfUnderWarranty, sfRemark, sfNeedApprove)
+        }
+        binding.tilDateSalesFinishOperation.setEndIconOnClickListener {
+            val selectedLen = Date().time
+
+            val materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(R.string.sales_finish_hint_12)
+                .setSelection(selectedLen)
+                .setCalendarConstraints(
+                    CalendarConstraints.Builder()
+                        .setStart(Date().time)
+                        .build()
+                )
+                .build()
+
+            materialDatePicker.show(requireActivity().supportFragmentManager, "DatePickerDialog")
+
+            materialDatePicker.addOnPositiveButtonClickListener {
+                viewModel.sfFinishDate.value = Date(it)
+            }
         }
 
         viewModel.salesFinishLineRecord.observe(viewLifecycleOwner) {
@@ -121,6 +154,8 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
             binding.spServiceTypeSalesFinishOperation.adapter = adapter
         }
         viewModel.reData.observe(viewLifecycleOwner) {
+            binding.btnSaveSalesFinishOperation.isEnabled = true
+
             when (it?.fOK) {
                 "True" -> {
 //                    Log.e("ferroli_log",
@@ -128,7 +163,9 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
 
                     viewModel.remarkText.postValue("已经保存成功!")
 
-                    viewModel.clearData()
+                    clearData()
+
+                    findNavController().popBackStack()
                 }
                 "False" -> {
                     viewModel.remarkText.postValue(it.fMsg)
@@ -140,6 +177,12 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
                 ToastUtil.showToast(requireContext(), it)
             }
         }
+        viewModel.sfFinishDate.observe(viewLifecycleOwner) {
+            binding.tbDateSalesFinishOperation.setText(formatter.format(it))
+        }
+        viewModel.qrCodePassed.observe(viewLifecycleOwner) {
+            binding.tvQrCodeStateSalesFinishOperation.text = if (it) "通过" else "须审批"
+        }
 
         val selectedSa = arguments?.getString("saId", "-1")?.toInt() ?: -1
 
@@ -150,11 +193,20 @@ class SalesFinishOperationFragment : Fragment(), SalesFinishCellAdapter.OnItemOp
     private val cameraActivityLauncher =
         registerForActivityResult(CameraActivityResultContract()) { result ->
             if (result.isNotBlank() && result != "no data") {
+                binding.tbQrCodeSalesFinishOperation.setText(result)
+
                 viewModel.getBaseProductInfoByQrCode(result)
             }
         }
 
     override fun onDeleteClick(item: SalesFinishLine) {
         viewModel.removeBasePartInfo(item)
+    }
+
+    private fun clearData() {
+        binding.tbQrCodeSalesFinishOperation.setText("")
+        binding.tbRemarkSalesFinishOperation.setText("")
+
+        viewModel.clearData()
     }
 }

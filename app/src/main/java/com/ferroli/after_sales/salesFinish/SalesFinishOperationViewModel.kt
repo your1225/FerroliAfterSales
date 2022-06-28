@@ -37,7 +37,10 @@ class SalesFinishOperationViewModel(application: Application) : AndroidViewModel
     var baseServiceTypeRecord: LiveData<List<BaseServiceType>?> = _baseServiceTypeRecord
 
     // 二维码是否通过
-    var qrCodePassed: Boolean = false
+    var qrCodePassed = MutableLiveData<Boolean>()
+
+    // 完成日期
+    var sfFinishDate = MutableLiveData<Date>()
 
     // 提示信息
     var remarkText = MutableLiveData<String>()
@@ -166,7 +169,7 @@ class SalesFinishOperationViewModel(application: Application) : AndroidViewModel
 
                     _baseProductInfoRecord.value = gson.fromJson(it, BaseProductInfo::class.java)
 
-                    qrCodePassed = true
+                    qrCodePassed.value = true
                 } else {
                     remarkText.value = "无法通过二维码获取产品信息"
                 }
@@ -222,26 +225,26 @@ class SalesFinishOperationViewModel(application: Application) : AndroidViewModel
         }
 
         val jsonObject = JSONObject()
-        jsonObject.put("SFId", -1)
+//        jsonObject.put("SFId", -1)
         jsonObject.put("PCBarcode", pcBarcode)
         jsonObject.put("BPiCode", baseProductInfoRecord.value?.bPiCode)
         jsonObject.put("BStId", bStId)
         jsonObject.put("SFUnderWarranty", sfUnderWarranty)
-        jsonObject.put("SFFinishDate", formatter.format(dtNow))
+        jsonObject.put("SFFinishDate", sfFinishDate.value?.let { formatter.format(it) } ?: formatter.format(dtNow))
         jsonObject.put("SOId", selectedSaLine.soId)
         jsonObject.put("SAId", selectedSaLine.saId)
         jsonObject.put("SFEmpId", empId)
         jsonObject.put("SFDate", formatter.format(dtNow))
         jsonObject.put("SFRemark", sfRemark)
         jsonObject.put("SFNeedApprove", sfNeedApprove)
-        jsonObject.put("SFIsApprove", false)
+//        jsonObject.put("SFIsApprove", false)
         jsonObject.put("SFApproveDate", formatter.format(dtNow))
-        jsonObject.put("SFApproveEmpId", -1)
-        jsonObject.put("SFIsRevisit", false)
-        jsonObject.put("SRId", -1)
-        jsonObject.put("SFIsExamine", false)
-        jsonObject.put("SFIsLineExamine", false)
-        jsonObject.put("SEId", -1)
+//        jsonObject.put("SFApproveEmpId", -1)
+//        jsonObject.put("SFIsRevisit", false)
+//        jsonObject.put("SRId", -1)
+//        jsonObject.put("SFIsExamine", false)
+//        jsonObject.put("SFIsLineExamine", false)
+//        jsonObject.put("SEId", -1)
 
         jsonObject.put("Lines", array)
 
@@ -272,7 +275,7 @@ class SalesFinishOperationViewModel(application: Application) : AndroidViewModel
     }
 
     fun clearData() {
-        qrCodePassed = false
+        qrCodePassed.value = false
         _baseProductInfoRecord.postValue(null)
         _salesFinishLineRecord.postValue(null)
     }

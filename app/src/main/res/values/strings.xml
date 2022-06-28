@@ -97,6 +97,8 @@
     <string name="sales_finish_hint_9">Scan product QR code</string>
     <string name="sales_finish_hint_10">Select product</string>
     <string name="sales_finish_hint_11">Information filling</string>
+    <string name="sales_finish_hint_12">Completion date</string>
+    <string name="sales_finish_hint_13">QR code state</string>
 
     <string name="sec_main_hint_1">Appoint status</string>
     <string name="sec_main_hint_2">Not appoint</string>

@@ -21,10 +21,14 @@ class SalesAppointLineOperationViewModel(application: Application) : AndroidView
     private var _detailInfoRecord = MutableLiveData<List<DetailInfo>?>()
     private var _saLineRecord = MutableLiveData<List<SalesAppointLine>?>()
     private var _appointUserRecord = MutableLiveData<List<UserAccount>?>()
+    private var _soLineRecord = MutableLiveData<List<SalesOrderLine>?>()
 
     // 已选委派
     private lateinit var selectedSa: SalesAppoint
     private lateinit var selectedSaLine: SalesAppointLine
+
+    // 购买的成品信息
+    var soLineRecord: LiveData<List<SalesOrderLine>?> = _soLineRecord
 
     // 委派信息
     var detailInfoRecord: LiveData<List<DetailInfo>?> = _detailInfoRecord
@@ -55,6 +59,8 @@ class SalesAppointLineOperationViewModel(application: Application) : AndroidView
                             .create()
 
                     selectedSa = gson.fromJson(it, SalesAppoint::class.java)
+
+                    getSalesOrderLineList(selectedSa.soId)
 
                     val dlList = mutableListOf<DetailInfo>()
 
@@ -138,6 +144,35 @@ class SalesAppointLineOperationViewModel(application: Application) : AndroidView
 
                     _appointUserRecord.value =
                         gson.fromJson(it, Array<UserAccount>::class.java).toList()
+                } else {
+                    remarkText.value = "未找到成品信息"
+                }
+            },
+            {
+                remarkText.value =
+                    getApplication<Application>().resources.getString(R.string.app_error)
+//                Log.d("Ferroli Log", it.toString())
+            }
+        ).also {
+            VolleySingleton.getInstance(getApplication()).requestQueue.add(it)
+        }
+    }
+
+    // 获取成品列表
+    private fun getSalesOrderLineList(soId: Int) {
+        val url = urlBase + "SalesOrder/Line_GetModelList/${soId}"
+
+        StringRequest(
+            Request.Method.GET,
+            url,
+            {
+                if (it.isNotEmpty() && it != "null") {
+                    val gson =
+                        GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
+                            .create()
+
+                    _soLineRecord.value =
+                        gson.fromJson(it, Array<SalesOrderLine>::class.java).toList()
                 } else {
                     remarkText.value = "未找到成品信息"
                 }

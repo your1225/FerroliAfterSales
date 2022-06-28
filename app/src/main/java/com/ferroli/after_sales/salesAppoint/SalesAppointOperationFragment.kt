@@ -106,6 +106,8 @@ class SalesAppointOperationFragment : Fragment() {
         }
 
         viewModel.reData.observe(viewLifecycleOwner) {
+            binding.btnSaveSalesAppointOperation.isEnabled = true
+
             when (it?.fOK) {
                 "True" -> {
 //                    Log.e("ferroli_log",
@@ -125,6 +127,8 @@ class SalesAppointOperationFragment : Fragment() {
             val bscPosition: Int =
                 binding.spBaseSupportCategorySalesAppointOperation.selectedItemPosition
             val toEmpPosition: Int = binding.spToWhomSalesAppointOperation.selectedItemPosition
+
+            binding.btnSaveSalesAppointOperation.isEnabled = false
 
             viewModel.saveData(
                 bscPosition = bscPosition,

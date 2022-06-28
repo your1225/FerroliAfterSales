@@ -38,6 +38,24 @@
                 tools:listitem="@layout/cell_detail_record" />
 
             <TextView
+                android:id="@+id/tvTitle4SalesAppointLineOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_background_bottom"
+                android:text="@string/sales_order_hint_10"
+                android:textColor="@color/ferroli_remind_3_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSoLineSalesAppointLineOperation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="1"
+                tools:listitem="@layout/cell_sales_order_line_record" />
+
+            <TextView
                 android:id="@+id/tvTitle2SalesAppointLineOperation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

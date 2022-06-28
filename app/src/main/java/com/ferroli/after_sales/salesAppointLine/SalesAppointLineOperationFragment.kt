@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ferroli.after_sales.databinding.FragmentSalesAppointLineOperationBinding
+import com.ferroli.after_sales.salesOrder.SalesOrderLineCellAdapter
 import com.ferroli.after_sales.utils.DetailCellAdapter
 import com.ferroli.after_sales.utils.ToastUtil
 import java.util.ArrayList
@@ -41,6 +42,7 @@ class SalesAppointLineOperationFragment : Fragment() {
 
         val saAdapter = DetailCellAdapter()
         val salAdapter = SalesAppointLineCellAdapter()
+        val solAdapter = SalesOrderLineCellAdapter()
 
         binding.rvSaDataSalesAppointLineOperation.apply {
             adapter = saAdapter
@@ -50,6 +52,10 @@ class SalesAppointLineOperationFragment : Fragment() {
             adapter = salAdapter
             layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         }
+        binding.rvSoLineSalesAppointLineOperation.apply {
+            adapter = solAdapter
+            layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        }
 
         viewModel.detailInfoRecord.observe(viewLifecycleOwner) {
             saAdapter.submitList(it)
@@ -57,7 +63,10 @@ class SalesAppointLineOperationFragment : Fragment() {
         viewModel.saLineRecord.observe(viewLifecycleOwner) {
             salAdapter.submitList(it)
         }
-        viewModel.appointUserRecord.observe(viewLifecycleOwner){
+        viewModel.soLineRecord.observe(viewLifecycleOwner) {
+            solAdapter.submitList(it)
+        }
+        viewModel.appointUserRecord.observe(viewLifecycleOwner) {
             if (it == null)
                 return@observe
 

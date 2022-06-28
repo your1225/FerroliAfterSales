@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,7 +17,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ferroli.after_sales.databinding.ActivityMainBinding
 import com.ferroli.after_sales.entity.VersionInfo
-import com.ferroli.after_sales.salesOrder.SalesOrderViewModel
 import com.ferroli.after_sales.utils.DownLoadService
 
 class MainActivity : AppCompatActivity() {

@@ -74,24 +74,14 @@ class SalesOrderFragment : Fragment() {
 
                     viewModel.remarkText.postValue("已经保存成功!")
 
-                    binding.tbCINameSalesOrder.setText("")
-                    binding.tbCITelSalesOrder.setText("")
-                    binding.tbCITel2SalesOrder.setText("")
-                    binding.tbCITel3SalesOrder.setText("")
-                    binding.tbCIAddressSalesOrder.setText("")
-                    binding.tbSORemarkSalesOrder.setText("")
-
-                    binding.tvBPtNameSalesOrder.text = ""
-                    binding.tvBPmNameSalesOrder.text = ""
-                    binding.tvBPiNameSalesOrder.text = ""
-                    binding.tvBPiENameSalesOrder.text = ""
-
-                    viewModel.clearData()
+                    clearData()
                 }
                 "False" -> {
                     viewModel.remarkText.postValue(it.fMsg)
                 }
             }
+
+            binding.btnSaveSalesOrder.isEnabled = true
         }
 
         binding.layout9SalesOrder.setEndIconOnClickListener {
@@ -281,7 +271,25 @@ class SalesOrderFragment : Fragment() {
 
             val solMoney: Float = binding.tbSOlMoneySalesOrder.text.toString().toFloat()
 
+            binding.btnSaveSalesOrder.isEnabled = false
+
             viewModel.saveData(so, solMoney)
         }
+    }
+
+    private fun clearData() {
+        binding.tbCINameSalesOrder.setText("")
+        binding.tbCITelSalesOrder.setText("")
+        binding.tbCITel2SalesOrder.setText("")
+        binding.tbCITel3SalesOrder.setText("")
+        binding.tbCIAddressSalesOrder.setText("")
+        binding.tbSORemarkSalesOrder.setText("")
+
+        binding.tvBPtNameSalesOrder.text = ""
+        binding.tvBPmNameSalesOrder.text = ""
+        binding.tvBPiNameSalesOrder.text = ""
+        binding.tvBPiENameSalesOrder.text = ""
+
+        viewModel.clearData()
     }
 }
