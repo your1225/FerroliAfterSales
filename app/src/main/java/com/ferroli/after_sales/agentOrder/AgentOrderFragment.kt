@@ -66,8 +66,6 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
 
                 ToastUtil.showToast(requireContext(), msg)
 
-                binding.tvRemarkAgentOrder.text = msg
-
                 return@setOnClickListener
             }
 
@@ -99,6 +97,9 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
         viewModel.aoRemark.observe(viewLifecycleOwner) {
             binding.tbAORemarkAgentOrder.setText(it)
         }
+        viewModel.agentBalance.observe(viewLifecycleOwner) {
+            binding.tvAgentBalanceAgentOrder.text = it.toString()
+        }
         viewModel.reData.observe(viewLifecycleOwner) {
             when (it?.fOK) {
                 "True" -> {
@@ -106,23 +107,23 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
 //                        "reData observe " + viewModel.ckNoLiveData.value + " - " + viewModel.itmLiveData.value)
 
                     viewModel.clearData()
+
+                    viewModel.getAgentBalance()
                 }
                 "False" -> {
-                    binding.tvRemarkAgentOrder.text = it.fMsg
+                    viewModel.remarkText.value = it.fMsg
                 }
             }
         }
         viewModel.remarkText.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 ToastUtil.showToast(requireContext(), it)
-
-                binding.tvRemarkAgentOrder.text = it
-            } else {
-                binding.tvRemarkAgentOrder.text = ""
             }
         }
 
-        if (binding.tbAOReceiveNameAgentOrder.text.toString().isEmpty()){
+        viewModel.getAgentBalance()
+
+        if (binding.tbAOReceiveNameAgentOrder.text.toString().isEmpty()) {
             viewModel.getLastInfo()
         }
     }
