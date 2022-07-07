@@ -42,6 +42,9 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
     // 返回值
     var reData = MutableLiveData<SysSqlReturn>()
 
+    // 余额
+    var agentBalance = MutableLiveData<Float>()
+
     fun getLastInfo() {
         val empId = LoginInfo.getLoginEmpId(getApplication())
 
@@ -64,6 +67,39 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
                     aoReceiveName.value = ao.aoReceiveName
                     aoReceiveTel.value = ao.aoReceiveTel
                     aoReceiveAddress.value = ao.aoReceiveAddress
+                } else {
+                    remarkText.value = "未找到历史订购信息"
+                }
+            },
+            {
+                remarkText.value =
+                    getApplication<Application>().resources.getString(R.string.app_error)
+//                Log.d("Ferroli Log", it.toString())
+            }
+        ).also {
+            VolleySingleton.getInstance(getApplication()).requestQueue.add(it)
+        }
+    }
+
+    fun getAgentBalance() {
+        val empId = LoginInfo.getLoginEmpId(getApplication())
+
+        if (empId == 0) {
+            return
+        }
+
+        val url = urlBase + "AgentOrder/GetAgentBalance/${empId}"
+
+        StringRequest(
+            Request.Method.GET,
+            url,
+            {
+                if (it.isNotEmpty() && it != "null") {
+                    val gson =
+                        GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
+                            .create()
+
+                    agentBalance.value = gson.fromJson(it, Float::class.java)
                 } else {
                     remarkText.value = "未找到历史订购信息"
                 }

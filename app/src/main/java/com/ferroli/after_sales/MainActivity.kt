@@ -86,9 +86,9 @@ class MainActivity : AppCompatActivity() {
 //        viewModelSo.getDistrict()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.general_menu, menu)
-        menu?.findItem(R.id.refreshGeneralMenu)?.isVisible = false
+        menu.findItem(R.id.refreshGeneralMenu)?.isVisible = false
 
         return true
     }

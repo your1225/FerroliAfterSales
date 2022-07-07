@@ -11,7 +11,7 @@ class CameraActivityResultContract : ActivityResultContract<String, String>() {
     private val KEY_IS_CONTINUOUS = "key_continuous_scan"
     val REQUEST_CODE_SCAN = 0X01
 
-    override fun createIntent(context: Context, input: String?): Intent {
+    override fun createIntent(context: Context, input: String): Intent {
         return Intent(context, CaptureActivity::class.java).apply {
             putExtra(KEY_TITLE, input)
             putExtra(KEY_IS_CONTINUOUS, false)

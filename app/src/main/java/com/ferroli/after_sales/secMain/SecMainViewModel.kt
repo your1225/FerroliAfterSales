@@ -43,7 +43,7 @@ class SecMainViewModel(application: Application) : AndroidViewModel(application)
 
                     _dingUserWithState.value = gson.fromJson(it, DingUserWithState::class.java)
                 } else {
-                    remarkText.value = "未找到历史订购信息"
+                    remarkText.value = "未找到用户信息"
                 }
             },
             {

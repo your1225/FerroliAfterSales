@@ -20,27 +20,27 @@ class LoginViewModel(application: Application, private var handle: SavedStateHan
         application.resources.getString(R.string.shp_emp_id)
     private val keyEmpName: String =
         application.resources.getString(R.string.shp_emp_name)
-    private val shpName =
+    private val shpName: String =
         application.resources.getString(R.string.shp_name)
 
     var reString = MutableLiveData<String>()
 
     private var _empId = MutableLiveData<Int>().also {
         if (!handle.contains(keyEmpId)) {
-            handle.set(keyEmpId, 0)
+            handle[keyEmpId] = 0
         }
-        it.value = handle.get(keyEmpId)
+        it.value = handle[keyEmpId]
     }
 
     private var _empName = MutableLiveData<String>().also {
         if (!handle.contains(keyEmpName)) {
-            handle.set(keyEmpName, "")
+            handle[keyEmpName] = ""
         }
-        it.value = handle.get(keyEmpName)
+        it.value = handle[keyEmpName]
     }
 
     // 员工工号
-//    val empId: LiveData<Int> = _empId
+    // val empId: LiveData<Int> = _empId
     // 员工姓名
     val empName: LiveData<String> = _empName
 
@@ -67,7 +67,7 @@ class LoginViewModel(application: Application, private var handle: SavedStateHan
     }
 
     fun loginUser(userName: String, password: String){
-        val url = urlBase + "UserAccount/LoginCheck/${userName}/${password}"
+        val url = urlBase + "UserAccount/LoginCheck/${userName.replace(".", "dot")}/${password}"
 
         StringRequest(
             Request.Method.GET,

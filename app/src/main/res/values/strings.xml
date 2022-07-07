@@ -51,6 +51,7 @@
     <string name="agent_order_hint_10">add part</string>
     <string name="agent_order_hint_11">enter part number or name to find</string>
     <string name="agent_order_hint_12">selected part type</string>
+    <string name="agent_order_hint_13">Account balance</string>
 
     <string name="login_hint_1">Sign in to continue</string>
     <string name="login_hint_2">user name</string>
