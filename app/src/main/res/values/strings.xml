@@ -38,6 +38,9 @@
     <string name="app_remark">remark</string>
     <string name="app_user_photo">User photo</string>
     <string name="app_remark_input">Input remark</string>
+    <string name="app_subtract" translatable="false">-</string>
+    <string name="app_equal" translatable="false">=</string>
+    <string name="app_save_passed">Save passed</string>
 
     <string name="agent_order_hint_1">attn</string>
     <string name="agent_order_hint_2">tel</string>
@@ -52,6 +55,8 @@
     <string name="agent_order_hint_11">enter part number or name to find</string>
     <string name="agent_order_hint_12">selected part type</string>
     <string name="agent_order_hint_13">Account balance</string>
+    <string name="agent_order_hint_14">sum</string>
+    <string name="agent_order_hint_15">surplus</string>
 
     <string name="login_hint_1">Sign in to continue</string>
     <string name="login_hint_2">user name</string>

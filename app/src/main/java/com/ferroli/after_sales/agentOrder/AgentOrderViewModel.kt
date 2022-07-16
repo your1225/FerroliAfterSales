@@ -43,7 +43,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
     var reData = MutableLiveData<SysSqlReturn>()
 
     // 余额
-    var agentBalance = MutableLiveData<Float>()
+    var agentBalance = MutableLiveData<Double>()
 
     fun getLastInfo() {
         val empId = LoginInfo.getLoginEmpId(getApplication())
@@ -99,7 +99,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
                         GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
                             .create()
 
-                    agentBalance.value = gson.fromJson(it, Float::class.java)
+                    agentBalance.value = gson.fromJson(it, Double::class.java)
                 } else {
                     remarkText.value = "未找到历史订购信息"
                 }
@@ -128,7 +128,7 @@ class AgentOrderViewModel(application: Application) : AndroidViewModel(applicati
             aoReceiveEmpId = LoginInfo.getLoginEmpId(getApplication()),
             aoIsApprove = false,
             aoIsSend = false,
-            aOlApproveCount = 0,
+            aOlApproveCount = buyCount,
             aOlApproveRemark = "",
             stockCount = 0
         )

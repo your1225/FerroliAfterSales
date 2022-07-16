@@ -92,7 +92,7 @@ class SalesOrderFragment : Fragment() {
                 .setSelection(selectedLen)
                 .setCalendarConstraints(
                     CalendarConstraints.Builder()
-                        .setStart(Date().time)
+//                        .setStart(Date().time)
                         .build()
                 )
                 .build()
@@ -112,7 +112,7 @@ class SalesOrderFragment : Fragment() {
                 .setSelection(selectedLen)
                 .setCalendarConstraints(
                     CalendarConstraints.Builder()
-                        .setStart(Date().time)
+//                        .setStart(Date().time)
                         .build()
                 )
                 .build()

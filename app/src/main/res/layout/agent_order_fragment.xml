@@ -93,54 +93,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout3AgentOrder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff">
-
-                <TextView
-                    android:id="@+id/tvTitle3AgentOrder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/app_money"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder" />
-
-                <TextView
-                    android:id="@+id/tvAgentBalanceAgentOrder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:textSize="48sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/tvTitle3AgentOrder"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="200.00" />
-
-                <TextView
-                    android:id="@+id/tvTitle2AgenttOrder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/agent_order_hint_13"
-                    android:textColor="@color/ferroli_color_se"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvAgentBalanceAgentOrder"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAgentBalanceAgentOrder"
-                    tools:ignore="TextContrastCheck" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout4AgentOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#efefef">
+                android:background="@drawable/ic_background_bottom">
 
                 <TextView
                     android:id="@+id/tvTitle1AgentOrder"
@@ -177,9 +133,132 @@
                 android:id="@+id/rvDataAgentOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 tools:itemCount="2"
                 tools:listitem="@layout/cell_agent_order_record" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout3AgentOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_background_bottom">
+
+                <TextView
+                    android:id="@+id/tvTitle3AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/app_money"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvAgentBalanceAgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/tvTitle3AgentOrder"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="200.0" />
+
+                <TextView
+                    android:id="@+id/tvTitle2AgenttOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/agent_order_hint_13"
+                    android:textColor="@color/gray_600"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvAgentBalanceAgentOrder"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAgentBalanceAgentOrder"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/tvTitle4AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/app_subtract"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvAgentBalanceAgentOrder"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvTitle5AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/app_money"
+                    app:layout_constraintStart_toEndOf="@+id/tvTitle4AgentOrder"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvSumMoneyAgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/tvTitle5AgentOrder"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder"
+                    tools:text="100.0" />
+
+                <TextView
+                    android:id="@+id/tvTitle6AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/agent_order_hint_14"
+                    app:layout_constraintStart_toStartOf="@+id/tvSumMoneyAgentOrder"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSumMoneyAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvTitle7AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_equal"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTitle6AgentOrder"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTitle8AgentOrder"
+                    app:layout_constraintStart_toEndOf="@+id/tvSumMoneyAgentOrder"
+                    app:layout_constraintTop_toTopOf="@+id/tvSumMoneyAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvSurplusMoneyAgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder"
+                    tools:text="100.0" />
+
+                <TextView
+                    android:id="@+id/tvTitle8AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/app_money"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSurplusMoneyAgentOrder"
+                    app:layout_constraintTop_toTopOf="@+id/tvAgentBalanceAgentOrder" />
+
+                <TextView
+                    android:id="@+id/tvTitle9AgentOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/agent_order_hint_15"
+                    app:layout_constraintStart_toStartOf="@+id/tvSurplusMoneyAgentOrder"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSurplusMoneyAgentOrder" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/btnSaveAgentOrder"

@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.databinding.AgentOrderFragmentBinding
 import com.ferroli.after_sales.entity.AgentOrderLine
-import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
 class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationListener {
@@ -62,9 +61,7 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
         }
         binding.btnSaveAgentOrder.setOnClickListener {
             if (viewModel.basePartInfoRecord.value.isNullOrEmpty()) {
-                val msg = "请先选择配件"
-
-                ToastUtil.showToast(requireContext(), msg)
+                ToastUtil.showToast(requireContext(), "请先选择配件")
 
                 return@setOnClickListener
             }
@@ -74,6 +71,22 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             val receiveAddress = binding.tbAOReceiveAddressAgentOrder.text.toString()
             val remark = binding.tbAORemarkAgentOrder.text.toString()
 
+            if (receiveName.isEmpty() || receiveTel.isEmpty() || receiveAddress.isEmpty()) {
+                ToastUtil.showToast(requireContext(), "必须填入用户姓名、电话、地址！")
+
+                return@setOnClickListener
+            }
+
+            if (binding.tvSurplusMoneyAgentOrder.text.toString().isNotEmpty()) {
+                val surplusMoney = binding.tvSurplusMoneyAgentOrder.text.toString().toDouble()
+
+                if (surplusMoney < 0) {
+                    ToastUtil.showToast(requireContext(), "您订购的配件已大于您的余额，请先充值！")
+
+                    return@setOnClickListener
+                }
+            }
+
             viewModel.saveData(
                 receiveName = receiveName,
                 receiveTel = receiveTel,
@@ -82,8 +95,22 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
             )
         }
 
-        viewModel.basePartInfoRecord.observe(viewLifecycleOwner) {
+        viewModel.basePartInfoRecord.observe(viewLifecycleOwner) { it ->
             mmAdapter.submitList(it)
+
+            if (it != null) {
+                val sumMoney = it.sumOf { line ->
+                    line.aOlCount * line.aOlAgentPrice.toDouble()
+                }
+
+                val surplusMoney = viewModel.agentBalance.value?.minus(sumMoney)
+
+                binding.tvSumMoneyAgentOrder.text = sumMoney.toString()
+                binding.tvSurplusMoneyAgentOrder.text = surplusMoney.toString()
+            } else {
+                binding.tvSumMoneyAgentOrder.text = "0"
+                binding.tvSurplusMoneyAgentOrder.text = viewModel.agentBalance.value.toString()
+            }
         }
         viewModel.aoReceiveName.observe(viewLifecycleOwner) {
             binding.tbAOReceiveNameAgentOrder.setText(it)
@@ -109,6 +136,8 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
                     viewModel.clearData()
 
                     viewModel.getAgentBalance()
+
+                    viewModel.remarkText.value = resources.getString(R.string.app_save_passed)
                 }
                 "False" -> {
                     viewModel.remarkText.value = it.fMsg
