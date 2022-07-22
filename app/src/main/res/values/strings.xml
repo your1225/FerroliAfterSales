@@ -3,6 +3,7 @@
     <string name="shp_name" translatable="false">APP_SHP</string>
     <string name="shp_emp_id" translatable="false">shp_emp_id</string>
     <string name="shp_emp_name" translatable="false">shp_emp_name</string>
+    <string name="shp_emp_appoint_level" translatable="false">shp_emp_appoint_level</string>
 
     <string name="app_menu_title_1">Main Window</string>
     <string name="app_menu_title_2">Agent Order</string>

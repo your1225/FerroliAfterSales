@@ -16,5 +16,7 @@ data class UserAccount(
     // 网点名称
     val cusName: String,
     // Ding ID
-    val dingId: String
+    val dingId: String,
+    // appointLevel
+    val appointLevel: Int
 )

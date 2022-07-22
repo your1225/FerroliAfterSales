@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.entity.AgentOrderLine
 import com.ferroli.after_sales.entity.urlFileBase
+import com.ferroli.after_sales.utils.LoginInfo
 
 class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
     ListAdapter<AgentOrderLine, AgentOrderCellAdapter.CellViewHolder>(DIFFCALLBACK) {
@@ -47,6 +48,8 @@ class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
             itemView.findViewById(R.id.tvCountAgentOrderRecord)
         val btnDeleteAgentOrderRecord: ImageButton =
             itemView.findViewById(R.id.btnDeleteAgentOrderRecord)
+//        val tvTitle1AgentOrderRecord: TextView =
+//            itemView.findViewById(R.id.tvTitle1AgentOrderRecord)
     }
 
     interface OnItemOperationListener {
@@ -64,12 +67,19 @@ class AgentOrderCellAdapter(private val listener: OnItemOperationListener) :
     override fun onBindViewHolder(holder: CellViewHolder, position: Int) {
         val currentItem = getItem(position)
 
+//        val appointLevel = LoginInfo.getLoginEmpAppointLevel(holder.itemView.context)
+
 //        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 
         holder.tvBPaiNameAgentOrderRecord.text = currentItem.bPaiName
         holder.tvBPaiCodeAgentOrderRecord.text = currentItem.bPaiCode
         holder.tvBPaiAgentPriceAgentOrderRecord.text = currentItem.aOlAgentPrice.toString()
         holder.tvCountAgentOrderRecord.text = currentItem.aOlCount.toString()
+
+//        if (appointLevel > 3) {
+//            holder.tvTitle1AgentOrderRecord.visibility = View.INVISIBLE
+//            holder.tvBPaiAgentPriceAgentOrderRecord.visibility = View.INVISIBLE
+//        }
 
 //        holder.tvBPaiCodeAgentOrderRecord.text = urlFileBase + currentItem.bPaiCode + ".jpg"
 

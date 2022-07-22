@@ -32,4 +32,18 @@ object LoginInfo {
 
         return empName
     }
+
+    fun getLoginEmpAppointLevel(context: Context): Int {
+        var empAppointLevel = 0
+
+        val shpName = context.resources.getString(R.string.shp_name)
+        val keyEmpAppointLevel: String =
+            context.resources.getString(R.string.shp_emp_appoint_level)
+
+        val shp: SharedPreferences? = context.getSharedPreferences(shpName, Context.MODE_PRIVATE)
+        if (shp != null)
+            empAppointLevel = shp.getInt(keyEmpAppointLevel, 0)
+
+        return empAppointLevel
+    }
 }

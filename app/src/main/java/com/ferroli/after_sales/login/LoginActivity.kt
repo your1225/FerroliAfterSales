@@ -45,13 +45,9 @@ class LoginActivity : AppCompatActivity() {
             viewModel.loginUser(userName, password)
         }
 
-        viewModel.reString.observe(this) {
-            if (it != "0") {
-                val empId = it.toInt()
-
-                val userName: String = binding.tbUsernameLogin.text.toString()
-
-                viewModel.saveUserInfo(empId, userName)
+        viewModel.userAccount.observe(this) {
+            if (it != null) {
+                viewModel.saveUserInfo(it)
 
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags =

@@ -11,8 +11,12 @@ import androidx.lifecycle.SavedStateHandle
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.ferroli.after_sales.R
+import com.ferroli.after_sales.entity.UserAccount
 import com.ferroli.after_sales.entity.VolleySingleton
 import com.ferroli.after_sales.entity.urlBase
+import com.ferroli.after_sales.utils.DateDeserializer
+import com.google.gson.GsonBuilder
+import java.util.*
 
 class LoginViewModel(application: Application, private var handle: SavedStateHandle) :
     AndroidViewModel(application) {
@@ -20,10 +24,12 @@ class LoginViewModel(application: Application, private var handle: SavedStateHan
         application.resources.getString(R.string.shp_emp_id)
     private val keyEmpName: String =
         application.resources.getString(R.string.shp_emp_name)
+    private val keyEmpAppointLevel: String =
+        application.resources.getString(R.string.shp_emp_appoint_level)
     private val shpName: String =
         application.resources.getString(R.string.shp_name)
 
-    var reString = MutableLiveData<String>()
+    var userAccount = MutableLiveData<UserAccount>()
 
     private var _empId = MutableLiveData<Int>().also {
         if (!handle.contains(keyEmpId)) {
@@ -38,21 +44,28 @@ class LoginViewModel(application: Application, private var handle: SavedStateHan
         }
         it.value = handle[keyEmpName]
     }
+    private var _empAppointLevel = MutableLiveData<Int>().also {
+        if (!handle.contains(keyEmpAppointLevel)) {
+            handle[keyEmpAppointLevel] = 0
+        }
+        it.value = handle[keyEmpAppointLevel]
+    }
 
     // 员工工号
     // val empId: LiveData<Int> = _empId
     // 员工姓名
     val empName: LiveData<String> = _empName
 
-    fun saveUserInfo(empId: Int, empName: String) {
+    fun saveUserInfo(ua: UserAccount) {
         val shp: SharedPreferences =
             getApplication<Application>().getSharedPreferences(
                 shpName,
                 Context.MODE_PRIVATE
             )
         val editor: SharedPreferences.Editor = shp.edit()
-        editor.putInt(keyEmpId, empId)
-        editor.putString(keyEmpName, empName)
+        editor.putInt(keyEmpId, ua.empId)
+        editor.putString(keyEmpName, ua.userName)
+        editor.putInt(keyEmpAppointLevel, ua.appointLevel)
         editor.apply()
     }
 
@@ -63,17 +76,24 @@ class LoginViewModel(application: Application, private var handle: SavedStateHan
         if (shp != null) {
             _empId.value = shp.getInt(keyEmpId, 0)
             _empName.value = shp.getString(keyEmpName, "")
+            _empAppointLevel.value = shp.getInt(keyEmpAppointLevel, 0)
         }
     }
 
-    fun loginUser(userName: String, password: String){
-        val url = urlBase + "UserAccount/LoginCheck/${userName.replace(".", "dot")}/${password}"
+    fun loginUser(userName: String, password: String) {
+        val url = urlBase + "UserAccount/LoginCheckNew/${userName.replace(".", "dot")}/${password}"
 
         StringRequest(
             Request.Method.GET,
             url,
             {
-                reString.value = it
+                if (it.isNotEmpty() && it != "null") {
+                    val gson =
+                        GsonBuilder().registerTypeAdapter(Date::class.java, DateDeserializer())
+                            .create()
+
+                    userAccount.value = gson.fromJson(it, UserAccount::class.java)
+                }
             },
             {
                 Log.d("Ferroli Log", it.toString())

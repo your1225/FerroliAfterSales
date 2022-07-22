@@ -19,6 +19,7 @@ import com.ferroli.after_sales.agentOrder.AgentOrderViewModel
 import com.ferroli.after_sales.databinding.BasePartInfoFragmentBinding
 import com.ferroli.after_sales.entity.urlFileBase
 import com.ferroli.after_sales.salesFinish.SalesFinishOperationViewModel
+import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
 class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedListener {
@@ -52,6 +53,13 @@ class BasePartInfoFragment : Fragment(), BasePartInfoCellAdapter.OnItemCheckedLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val appointLevel = LoginInfo.getLoginEmpAppointLevel(requireContext())
+
+        if (appointLevel > 3) {
+            binding.textView5BasePartInfo.visibility = View.INVISIBLE
+            binding.tvBPaiAgentPriceBasePartInfo.visibility = View.INVISIBLE
+        }
 
         refreshState()
 

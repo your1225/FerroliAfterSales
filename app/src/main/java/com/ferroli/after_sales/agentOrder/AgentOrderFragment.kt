@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ferroli.after_sales.R
 import com.ferroli.after_sales.databinding.AgentOrderFragmentBinding
 import com.ferroli.after_sales.entity.AgentOrderLine
+import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
 class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationListener {
@@ -40,6 +41,15 @@ class AgentOrderFragment : Fragment(), AgentOrderCellAdapter.OnItemOperationList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val appointLevel = LoginInfo.getLoginEmpAppointLevel(requireContext())
+
+        if (appointLevel > 3) {
+            binding.btnAddPartAgentOrder.visibility = View.INVISIBLE
+            binding.btnSaveAgentOrder.visibility = View.INVISIBLE
+
+            ToastUtil.showToast(requireContext(), "配件订购，必须使用网点的账号！")
+        }
 
         binding.rvDataAgentOrder.apply {
             adapter = mmAdapter

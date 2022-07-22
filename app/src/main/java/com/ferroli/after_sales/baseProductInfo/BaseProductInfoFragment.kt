@@ -16,6 +16,7 @@ import com.ferroli.after_sales.R
 import com.ferroli.after_sales.databinding.FragmentBaseProductInfoBinding
 import com.ferroli.after_sales.entity.urlFileBase
 import com.ferroli.after_sales.salesOrder.SalesOrderViewModel
+import com.ferroli.after_sales.utils.LoginInfo
 import com.ferroli.after_sales.utils.ToastUtil
 
 class BaseProductInfoFragment : Fragment(), BaseProductInfoCellAdapter.OnItemCheckedListener {
